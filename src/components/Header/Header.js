@@ -1,33 +1,33 @@
 import Link from 'next/link';
 import React from 'react';
-import { AiFillGithub, AiFillInstagram, AiFillLinkedin, AiFillMail } from 'react-icons/ai';
+import { AiFillFilePdf, AiFillGithub, AiFillInstagram, AiFillLinkedin, AiFillMail } from 'react-icons/ai';
 import { DiCssdeck } from 'react-icons/di';
 
-import { Container, Div1, Div2, Div3, NavLink, SocialIcons } from './HeaderStyles';
+import { Container, Div1, Div2, Div3, NavLink, SocialIcons, Span } from './HeaderStyles';
 
 const Header = () =>  (
   <Container>
     <Div1>
       <Link href="/">
-        <a style={{ display: "flex", alignItems: "center", color: "white"}}>
-          <DiCssdeck size="3rem"/> <span>Portfolio</span>
+        <a style={{ display: "flex", alignItems: "center", color: "white", marginBottom: "20px" }}>
+          <DiCssdeck size="3rem"/> <Span>Priyanshu</Span>
         </a>
       </Link>
     </Div1>
     <Div2>
       <li>
-        <Link href="#projects">
-          <NavLink>Projects</NavLink>
+        <Link href="#about">
+          <NavLink>About</NavLink>
         </Link>
       </li>
       <li>
         <Link href="#tech">
-          <NavLink>Technologies</NavLink>
+          <NavLink>Skills</NavLink>
         </Link>
       </li>
       <li>
-        <Link href="#about">
-          <NavLink>About</NavLink>
+        <Link href="#projects">
+          <NavLink>Projects</NavLink>
         </Link>
       </li>
     </Div2>
@@ -40,6 +40,9 @@ const Header = () =>  (
       </SocialIcons>
       <SocialIcons href="mailto:priyanshu.sanjay.patel@gmail.com">
         <AiFillMail size="3rem"/>
+      </SocialIcons>
+      <SocialIcons href="/Priyanshu_Patel_Resume_15-08-2022-18-01-58.pdf">
+        <AiFillFilePdf size="3rem"/>
       </SocialIcons>
     </Div3>
   </Container>
