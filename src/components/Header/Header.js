@@ -10,7 +10,7 @@ const Header = () =>  (
     <Div1>
       <Link href="/">
         <a style={{ display: "flex", alignItems: "center", color: "white", marginBottom: "20px" }}>
-          <DiCssdeck size="3rem"/> <Span>Priyanshu</Span>
+          <DiCssdeck size="3rem"/> <Span>Priyanshu Patel</Span>
         </a>
       </Link>
     </Div1>
@@ -41,7 +41,7 @@ const Header = () =>  (
       <SocialIcons href="mailto:priyanshu.sanjay.patel@gmail.com">
         <AiFillMail size="3rem"/>
       </SocialIcons>
-      <SocialIcons href="/Priyanshu_Patel_Resume_15-08-2022-18-01-58.pdf">
+      <SocialIcons href="/Priyanshu_Patel_Resume.pdf">
         <AiFillFilePdf size="3rem"/>
       </SocialIcons>
     </Div3>
