@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import React from 'react';
-import { AiFillFilePdf, AiFillGithub, AiFillInstagram, AiFillLinkedin, AiFillMail } from 'react-icons/ai';
+import { AiFillGithub, AiFillInstagram, AiFillLinkedin, AiFillMail } from 'react-icons/ai';
 import { DiCssdeck } from 'react-icons/di';
 
 import { Container, Div1, Div2, Div3, NavLink, SocialIcons, Span } from './HeaderStyles';
@@ -10,7 +10,7 @@ const Header = () =>  (
     <Div1>
       <Link href="/">
         <a style={{ display: "flex", alignItems: "center", color: "white", marginBottom: "20px" }}>
-          <DiCssdeck size="3rem"/> <Span>Priyanshu Patel</Span>
+          <DiCssdeck size="3rem"/> <Span>Priyanshu</Span>
         </a>
       </Link>
     </Div1>
@@ -41,8 +41,8 @@ const Header = () =>  (
       <SocialIcons href="mailto:priyanshu.sanjay.patel@gmail.com">
         <AiFillMail size="3rem"/>
       </SocialIcons>
-      <SocialIcons href="/Priyanshu_Patel_Resume.pdf">
-        <AiFillFilePdf size="3rem"/>
+      <SocialIcons href="https://instagram.com/pri.s.p">
+        <AiFillInstagram size="3rem"/>
       </SocialIcons>
     </Div3>
   </Container>
