@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import React from 'react';
-import { AiFillGithub, AiFillInstagram, AiFillLinkedin, AiFillMail } from 'react-icons/ai';
-import { DiCssdeck } from 'react-icons/di';
+import { AiFillGithub, AiFillInstagram, AiFillLinkedin } from 'react-icons/ai';
+import { CgProfile } from 'react-icons/Cg';
 
 import { Container, Div1, Div2, Div3, NavLink, SocialIcons, Span } from './HeaderStyles';
 
@@ -10,7 +10,7 @@ const Header = () =>  (
     <Div1>
       <Link href="/">
         <a style={{ display: "flex", alignItems: "center", color: "white", marginBottom: "20px" }}>
-          <DiCssdeck size="3rem"/> <Span>Priyanshu</Span>
+          <CgProfile size="3rem"/> <Span style={{marginLeft:"10px"}}>Priyanshu</Span>
         </a>
       </Link>
     </Div1>
@@ -30,6 +30,11 @@ const Header = () =>  (
           <NavLink>Projects</NavLink>
         </Link>
       </li>
+      <li>
+        <Link href="#footer">
+          <NavLink>Contact</NavLink>
+        </Link>
+      </li>
     </Div2>
     <Div3>
       <SocialIcons href="https://github.com/prisp09">
@@ -37,9 +42,6 @@ const Header = () =>  (
       </SocialIcons>
       <SocialIcons href="https://www.linkedin.com/in/priyanshu-sanjay-patel/">
         <AiFillLinkedin size="3rem"/>
-      </SocialIcons>
-      <SocialIcons href="mailto:priyanshu.sanjay.patel@gmail.com">
-        <AiFillMail size="3rem"/>
       </SocialIcons>
       <SocialIcons href="https://instagram.com/pri.s.p">
         <AiFillInstagram size="3rem"/>
