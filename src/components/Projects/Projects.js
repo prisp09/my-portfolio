@@ -5,8 +5,8 @@ import { Section, SectionDivider, SectionTitle } from '../../styles/GlobalCompon
 import { projects } from '../../constants/constants';
 
 const Projects = () => (
-  <Section nopadding id="projects">
-    <SectionDivider/>
+  <Section id="projects">
+    <SectionDivider style={{marginTop:"10px", marginBottom:"-25px"}} />
     <SectionTitle main>Projects</SectionTitle>
     <GridContainer>
       {projects.map(({id, image, title, description, tags, source, visit}) => (
