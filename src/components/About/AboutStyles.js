@@ -39,7 +39,10 @@ export const Divi = styled.div`
     @media ${(props) => props.theme.breakpoints.sm} {
         visibility: hidden;
       }
-      @media ${(props) => props.theme.breakpoints.md} {
+    @media ${(props) => props.theme.breakpoints.md} {
         visibility: hidden;
       }
+    @media ${(props) => props.theme.breakpoints.lg}{
+        z-index: -2;
+    }
 `;

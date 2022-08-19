@@ -17,12 +17,12 @@ const About = () => (
 
     <LeftSection>
         <SectionText>
-            My name is Priyanshu and I am a motivated BSc. Computer Science graduate from York University 
-            that comes with a wide array of industry applicable skillset. At the moment, I am pursuing a career
-            in backend development while strengthening my grasp of frontend to become an elite full-stack!
+            My name is Priyanshu and I am a motivated BSc. Computer Science graduate from York University.
+            At the moment, I am pursuing a career
+            in backend or full-stack development while strengthening my grasp of frontend design elements to become unstoppable!
             Currently working on new projects to show off my skills! 😎
             <br />
-            Other than coding, I enjoy mountain biking🚵, exploring🌵 and playing video games🎮!    
+            Other than coding, I enjoy mountain biking🚵, exploring🌵 and hitting the gym💪!    
         </SectionText>
     </LeftSection>
 </Section>
