@@ -1,11 +1,16 @@
 import styled from 'styled-components';
 
 export const Img = styled.img`
-  width:100%;
-  height:100%;
+  position: relative;
+  width: 400px;
   object-fit: cover;
   overflow: hidden;
-`
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  @media ${(props) => props.theme.breakpoints.sm} {
+    width: 100%;
+  }
+`;
 
 export const GridContainer = styled.section`
 display: grid;
@@ -20,17 +25,21 @@ row-gap: 3rem;
   padding: 2rem;
   padding-bottom: 0;
 }
+`;
 
-`
 export const BlogCard = styled.div`
   border-radius: 10px;
   box-shadow: 3px 3px 20px rgba(80, 78, 78, 0.5);
   text-align: center;
   width: 400px;
+  &:hover {
+    box-shadow: 3px 3px 30px rgba(80, 78, 78, 1)
+  }
   @media ${(props) => props.theme.breakpoints.sm} {
     width: 100%;
   }
 `;
+
 export const TitleContent = styled.div`
   text-align: center;
   z-index: 20;
@@ -38,11 +47,8 @@ export const TitleContent = styled.div`
 
 `;
 
-
 export const HeaderThree = styled.h3`
-  font-weight: 500;
-  letter-spacing: 2px;
-  color: #9cc9e3;
+  font-weight: 400;
   padding: .5rem 0;
   font-size: ${(props) => props.title ? '3rem' : '2rem'};
 `;
@@ -52,7 +58,7 @@ export const Hr = styled.hr`
   height: 3px;
   margin: 20px auto;
   border: 0;
-  background: #d0bb57;
+  background: #d0ff57;
 `;
 
 export const Intro = styled.div`
@@ -65,7 +71,6 @@ export const Intro = styled.div`
   line-height: 18px;
 `;
 
-
 export const CardInfo = styled.p`
   width: 100%;
   padding: 0 50px;
@@ -74,39 +79,55 @@ export const CardInfo = styled.p`
   line-height: 24px;
   text-align: justify;
   @media ${(props) => props.theme.breakpoints.sm} {
-    padding:.3rem
+    padding: 1rem
   
 }
 `;
 
-
 export const UtilityList = styled.ul`
   list-style-type: none;
-  padding: 0;
   display: flex;
   justify-content: space-around;
-  margin: 2.5rem 0;
+  margin: 2.5rem;
 `;
 
 export const ExternalLinks = styled.a`
 color:#d4c0c0;
 font-size: 1.6rem;
 padding:1rem 1.5rem;
-background: #6b3030;
+background: #212d45;
 border-radius: 15px;
 transition: 0.5s;
 &:hover{
-  background: #801414;
+  background: #B133FF;
+
+}
+`;
+
+export const ExternalLinks2 = styled.a`
+color:#d4c0c0;
+font-size: 1.6rem;
+padding:1rem 1.5rem;
+background: #212d45;
+border-radius: 15px;
+transition: 0.5s;
+&:hover{
+  background: #ff622e;
 
 }
 `;
 
 export const TagList = styled.ul`
-display: flex;
-justify-content: space-around;
-padding: 2rem;
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+gap: 2rem;
+margin: 2rem 4.5rem;
+@media ${(props) => props.theme.breakpoints.sm} {
+  margin: 2rem 1rem;
+}
 `
 export const Tag = styled.li`
-color: #d8bfbf;
+color: #00FFFF;
+opacity: 80%;
 font-size: 1.5rem;
-`
+`;

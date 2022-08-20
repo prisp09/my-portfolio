@@ -1,19 +1,19 @@
 import Link from 'next/link';
 import React from 'react';
 
-import { Section, SectionText, SectionTitle } from '../../styles/GlobalComponents';
+import { Section, SectionText } from '../../styles/GlobalComponents';
 import Button from '../../styles/GlobalComponents/Button';
-import { LeftSection } from './HeroStyles';
+import { LeftSection, SectionTitle2 } from './HeroStyles';
 import { BsFileEarmarkPdf } from 'react-icons/bs';
 
 const Hero = (props) => (
   <Section row nopadding style={{marginTop: '-40px'}}>
     <LeftSection>
-      <SectionTitle main center>
+      <SectionTitle2 main center>
       Hello there!
       <br />
       I am Priyanshu.
-      </SectionTitle>
+      </SectionTitle2>
       <SectionText>
         Welcome to my portfolio website!
         <br />

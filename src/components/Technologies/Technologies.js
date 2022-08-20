@@ -18,11 +18,11 @@ const Technologies = () =>  (
     <br />
     <br />
     <SectionTitle>Skills & Technologies</SectionTitle>
-    <SectionText>
+    {/* <SectionText>
     For a software engineer/developer it is essential to actively keep learning and acquiring new skills so they can keep up with the fast-paced environment of the tech industry.
     Therefore, I am open and flexible when it comes to learning new skills.<br/>
     Over the course of my tech journey so far, I have accumulated a wide array of industry applicable skill-set that make me job ready. Some of them are as follows:<br/>
-    </SectionText>
+    </SectionText> */}
     <List style={{marginTop: "10px"}}>
       <ListItem>
         <ListContainer>
@@ -83,7 +83,7 @@ const Technologies = () =>  (
             <DiEclipse size="2rem" style={{position: "relative", top:"4px"}}/>Eclipse
             <BsDot size="2rem" style={{position: "relative", top:"4px"}}/>
             <BiCodeAlt size="2rem" style={{position: "relative", top:"4px"}}/> VSCode
-            <BsDot size="2rem" style={{position: "relative", top:"4px"}}/>
+            <BsDot size="2rem" style={{position: "relative", top:"4px"}}/><br />
             <DiAndroid size="2rem" style={{position: "relative", top:"4px"}}/> Android Studio
             <BsDot size="2rem" style={{position: "relative", top:"4px"}}/>
             <SiApachemaven size="2rem" style={{position: "relative", top:"4px"}}/> Maven
@@ -91,7 +91,7 @@ const Technologies = () =>  (
             <SiNetlify size="2rem" style={{position: "relative", top:"4px"}}/> Netlify
             <BsDot size="2rem" style={{position: "relative", top:"4px"}}/>
             <GiTreeBeehive size="2rem" style={{position: "relative", top:"4px"}}/> Beekeeper Studio
-            <BsDot size="2rem" style={{position: "relative", top:"4px"}}/>
+            <BsDot size="2rem" style={{position: "relative", top:"4px"}}/><br />
             <DiHeroku size="2rem" style={{position: "relative", top:"4px"}}/>Heroku
 
           </ListParagraph>

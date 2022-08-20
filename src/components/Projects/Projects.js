@@ -1,33 +1,33 @@
 import React from 'react';
 
-import { BlogCard, CardInfo, ExternalLinks, GridContainer, HeaderThree, Hr, Tag, TagList, TitleContent, UtilityList, Img } from './ProjectsStyles';
+import { BlogCard, CardInfo, ExternalLinks, GridContainer, HeaderThree, Hr, Tag, TagList, TitleContent, UtilityList, Img, ExternalLinks2 } from './ProjectsStyles';
 import { Section, SectionDivider, SectionTitle } from '../../styles/GlobalComponents';
 import { projects } from '../../constants/constants';
 
 const Projects = () => (
   <Section id="projects">
-    <SectionDivider style={{marginTop:"10px", marginBottom:"-25px"}} />
+    <SectionDivider/>
     <SectionTitle main>Projects</SectionTitle>
     <GridContainer>
       {projects.map(({id, image, title, description, tags, source, visit}) => (
         <BlogCard key={id}>
-          <Img src={image} />
+          <Img src={image}/>
           <TitleContent>
+            <span><br/></span>
             <HeaderThree title>{title}</HeaderThree>
             <Hr/>
           </TitleContent>
           <CardInfo>{description}</CardInfo>
           <div>
-            <TitleContent>Stack</TitleContent>
             <TagList>
               {tags.map((tag, i) => (
                 <Tag key={i}>{tag}</Tag>
               ))}
             </TagList>
           </div>
-          <UtilityList>
+          <UtilityList style={{marginTop: "4px"}}>
             <ExternalLinks href="visit">Code</ExternalLinks>
-            <ExternalLinks href="source">Source</ExternalLinks>
+            <ExternalLinks2 href="source">Source</ExternalLinks2>
           </UtilityList>
         </BlogCard>
       ))}

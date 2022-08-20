@@ -35,6 +35,8 @@ export const Divi = styled.div`
     background: #1388c7;
     margin: auto;
     padding: 15px 10px;
+    zindex: -1;
+    transition: all 0.5s ease;
 
     @media ${(props) => props.theme.breakpoints.sm} {
         visibility: hidden;
@@ -43,6 +45,9 @@ export const Divi = styled.div`
         visibility: hidden;
       }
     @media ${(props) => props.theme.breakpoints.lg}{
-        z-index: -2;
+        visibility: hidden;
+    }
+    &:hover {
+      background: #B133FF;
     }
 `;
