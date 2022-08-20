@@ -36,7 +36,7 @@ export const Divi = styled.div`
     margin: auto;
     padding: 15px 10px;
     zindex: -1;
-    transition: all 0.5s ease;
+    transition: all 1s ease;
 
     @media ${(props) => props.theme.breakpoints.sm} {
         visibility: hidden;
