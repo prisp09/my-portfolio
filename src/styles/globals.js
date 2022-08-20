@@ -32,6 +32,24 @@ const GlobalStyles = createGlobalStyle`
     list-style: none;
   }
 
+::-webkit-scrollbar {
+  width: 16px;
+  
+}
+
+::-webkit-scrollbar-thumb {
+  border: 6px solid rgba(0, 0, 0, 0);
+  background-clip: padding-box;
+  border-radius: 9999px;
+  background-color: #AAAAAA;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  border: 4px solid rgba(0, 0, 0, 0);
+  background-clip: padding-box;
+  border-radius: 9999px;
+  background-color: #DDDDDD;
+}
 `;
 
 export default GlobalStyles;

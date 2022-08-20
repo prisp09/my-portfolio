@@ -7,7 +7,9 @@ import { projects } from '../../constants/constants';
 const Projects = () => (
   <Section id="projects">
     <SectionDivider/>
-    <SectionTitle main>Projects</SectionTitle>
+    <br />
+    <br />
+    <SectionTitle>Projects</SectionTitle>
     <GridContainer>
       {projects.map(({id, image, title, description, tags, source, visit}) => (
         <BlogCard key={id}>
@@ -26,8 +28,8 @@ const Projects = () => (
             </TagList>
           </div>
           <UtilityList style={{marginTop: "4px"}}>
-            <ExternalLinks href="visit">Code</ExternalLinks>
-            <ExternalLinks2 href="source">Source</ExternalLinks2>
+            <ExternalLinks href="visit" target={"_blank"}>Code</ExternalLinks>
+            <ExternalLinks2 href="source" target={"_blank"}>Source</ExternalLinks2>
           </UtilityList>
         </BlogCard>
       ))}
