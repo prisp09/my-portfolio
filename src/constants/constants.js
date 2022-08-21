@@ -22,7 +22,7 @@ export const projects = [
     title: 'This Website!',
     description: "This porfolio website is designed to showcase my abilities and projects. It is made with react native components, custom styles, and some creativity🎨.",
     image: '/images/4.png',
-    tags: ['React', 'Next.js', 'HTML5', 'CSS3'],
+    tags: ['React', 'Node', 'HTML5', 'CSS3'],
     source: 'https://google.com',
     visit: 'https://google.com',
     id: 2,

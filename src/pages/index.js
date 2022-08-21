@@ -5,6 +5,7 @@ import Technologies from '../components/Technologies/Technologies';
 import About from '../components/About/About';
 import Layout from '../layout/Layout';
 import { Section } from '../styles/GlobalComponents';
+import UpButton from '../components/UpButton/UpButton';
 
 
 const Home = () => {
@@ -14,6 +15,7 @@ const Home = () => {
         <Hero />
         <BgAnimation />
       </Section>
+      <UpButton>Scroll up!</UpButton>
       <About />
       <Technologies />
       <Projects />

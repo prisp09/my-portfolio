@@ -19,7 +19,7 @@ const Hero = (props) => (
         <br />
         Let me start of by introducing myself, briefly.
         <br />
-        My name is Priyanshu Patel and I am a recent graduate from York University, currently looking for a back-end or full-stack position.
+        My name is Priyanshu Patel and I am a recent graduate from York University, currently looking for a software developer/engineer position.
         <a href="#about" style={{ color: "#F46737" }}> Find out more.</a>
       </SectionText>
       <Button onClick={() => window.open('/Priyanshu_Patel_Resume.pdf','_blank')}><BsFileEarmarkPdf size="2rem" style={{marginRight: '6px'}}/>My Resume</Button>
