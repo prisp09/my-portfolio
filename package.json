@@ -1,13 +1,10 @@
 {
-  "name": "portfolio_nextjs",
-  "version": "0.1.0",
-  "private": true,
+  "name": "priyanshu_portfolio",
+  "version": "1.0",
   "scripts": {
     "dev": "next dev",
     "build": "next build && next export",
-    "start": "next start",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "start": "next start"
   },
   "dependencies": {
     "next": "^12.2.5",
@@ -18,9 +15,5 @@
     "styled-normalize": "^8.0.7"
   },
   
-  "homepage": "https://priyanshupatel.com",
-  
-  "devDependencies": {
-    "gh-pages": "^4.0.0"
-  }
+  "homepage": "https://priyanshupatel.com"
 }
