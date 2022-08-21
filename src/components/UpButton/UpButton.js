@@ -30,7 +30,6 @@ const UpButton = () => {
               <IoIosArrowUp size="4rem"/>
             </StyledButton>
           )}
-          {/* &#8679; is used to create the upward arrow */}
         </>
       );
 };
