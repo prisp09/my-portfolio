@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build && next export",
-    "start": "next start"
+    "start": "next start",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "next": "^12.2.5",
@@ -14,5 +16,9 @@
     "react-icons": "^4.4.0",
     "styled-components": "^5.3.0",
     "styled-normalize": "^8.0.7"
+  },
+  "homepage": "https://prisp09.github.io",
+  "devDependencies": {
+    "gh-pages": "^4.0.0"
   }
 }
