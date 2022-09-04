@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes} from 'styled-components';
 
 export const LeftSection = styled.div`
   width: 69%;
@@ -25,6 +25,17 @@ export const Img = styled.img`
     left: -30px;
     object-fit: scale-down;
 `
+const changeBG = keyframes`
+0% {
+  background: #1388c7;
+}
+50% {
+  background: #B133FF;
+}
+100% {
+  background: #1388c7;
+}
+`
 
 export const Divi = styled.div`
     position: absolute;
@@ -32,11 +43,9 @@ export const Divi = styled.div`
     top: 185px;
     width: 280px;
     height: 250px;
-    background: #1388c7;
     margin: auto;
     padding: 15px 10px;
     zindex: -1;
-    transition: all 1s ease;
 
     @media ${(props) => props.theme.breakpoints.sm} {
         visibility: hidden;
@@ -47,7 +56,5 @@ export const Divi = styled.div`
     @media ${(props) => props.theme.breakpoints.lg}{
         visibility: hidden;
     }
-    &:hover {
-      background: #B133FF;
-    }
+    animation: ${changeBG} 5s ease infinite;
 `;
