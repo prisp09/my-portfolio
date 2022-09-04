@@ -1,4 +1,7 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+import bounceOut from 'react-animations/lib/bounce-out-right';
+import bounceIn from 'react-animations/lib/bounce-in-left';
+
 
 export const LeftSection = styled.div`
   width: 100%;
@@ -27,6 +30,7 @@ export const SectionTitle2 = styled.h2`
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-bottom: 16px;
+  
   padding: ${(props) => props.main ? '58px 0 16px' : '0'};
 
   @media ${props => props.theme.breakpoints.md}{
@@ -45,4 +49,6 @@ export const SectionTitle2 = styled.h2`
     padding: ${(props) => props.main ? '16px 0 8px' : '0'};
     max-width: 100%;
   }
+
+  animation: 1.5s ${keyframes(bounceIn)};
 `

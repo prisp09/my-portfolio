@@ -25,6 +25,7 @@ const Hero = (props) => (
       <Button onClick={() => window.open('/Priyanshu_Patel_Resume.pdf','_blank')}><BsFileEarmarkPdf size="2rem" style={{marginRight: '6px'}}/>My Resume</Button>
     </LeftSection>
   </Section>
+  
 );
 
 export default Hero;
