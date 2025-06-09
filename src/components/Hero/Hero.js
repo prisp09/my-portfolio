@@ -17,9 +17,10 @@ const Hero = (props) => (
       <SectionText>
         Welcome to my portfolio website!
         <br />
-        Let me start of by introducing myself, briefly.
+        Let me start of by introducing myself.
         <br />
-        My name is Priyanshu Patel and I am a recent graduate from York University, currently looking for a software developer/engineer position.
+        My name is Priyanshu Patel and I currently working as a full-stack engineer at <a href='https://skinopathy.com/'>Skinopathy.</a>
+        <br />
         <a href="#about" style={{ color: "#F46737" }}> Find out more.</a>
       </SectionText>
       <Button onClick={() => window.open('/Priyanshu_Patel_Resume.pdf','_blank')}><BsFileEarmarkPdf size="2rem" style={{marginRight: '6px'}}/>My Resume</Button>

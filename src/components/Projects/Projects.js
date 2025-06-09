@@ -17,6 +17,7 @@ import {
 import {
   Section,
   SectionDivider,
+  SectionText,
   SectionTitle,
 } from "../../styles/GlobalComponents";
 import { projects } from "../../constants/constants";
@@ -28,7 +29,7 @@ const Projects = () => (
     <br />
     <br />
     <SectionTitle>Projects</SectionTitle>
-    <GridContainer>
+    {/* <GridContainer>
       {projects.map(
         ({ id, image, title, description, tags, source, visit }) => (
           <BlogCard key={id}>
@@ -59,7 +60,8 @@ const Projects = () => (
           </BlogCard>
         )
       )}
-    </GridContainer>
+    </GridContainer> */}
+    <SectionText>Under construction! ⚠️🚧<br />Check back later for updates!</SectionText>
   </Section>
 );
 

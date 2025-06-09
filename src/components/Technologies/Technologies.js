@@ -23,7 +23,7 @@ const Technologies = () =>  (
     Therefore, I am open and flexible when it comes to learning new skills.<br/>
     Over the course of my tech journey so far, I have accumulated a wide array of industry applicable skill-set that make me job ready. Some of them are as follows:<br/>
     </SectionText> */}
-    <List style={{marginTop: "10px"}}>
+    {/* <List style={{marginTop: "10px"}}>
       <ListItem>
         <ListContainer>
           <ListTitle><BiCodeCurly size="2rem"/> Languages</ListTitle>
@@ -97,7 +97,8 @@ const Technologies = () =>  (
           </ListParagraph>
         </ListContainer>
       </ListItem>
-    </List>
+    </List> */}
+    <SectionText>Under construction! ⚠️🚧<br />Check back later for updates!</SectionText>
   </Section>
 );
 
