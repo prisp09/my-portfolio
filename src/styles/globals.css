@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222 47% 8%;
+    --foreground: 204 24% 96%;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+  }
+  body {
+    @apply antialiased cursor-default;
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+    font-family: "Space Grotesk", system-ui, sans-serif;
+    background: #0f1624;
+    color: hsl(204, 23.8%, 95.9%);
+    font-size: 1.6rem;
+  }
+  h1, h2, h3, h4, h5, h6, button {
+    font-family: "Space Grotesk", system-ui, sans-serif;
+  }
+  a {
+    text-decoration: none;
+  }
+  li {
+    list-style: none;
+  }
+}
+
+/* Scrollbar: transparent track + floating glass thumb */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.25) transparent;
+}
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 9999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+::-webkit-scrollbar-thumb:active {
+  background: rgba(255, 255, 255, 0.28);
+}
+
+@keyframes changeBG {
+  0%, 100% { background: #1388c7; }
+  50% { background: #b133ff; }
+}
+
+@keyframes bounceIn {
+  0% { opacity: 0; transform: translateX(-60px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+.animate-changeBG {
+  animation: changeBG 5s ease infinite;
+}
