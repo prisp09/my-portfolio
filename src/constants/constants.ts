@@ -1,5 +1,47 @@
 /** Resume-derived data for portfolio */
 
+/** SEO: single source of truth for meta and structured data (recruiter-friendly) */
+export const seo = {
+  siteUrl: "https://priyanshupatel.com",
+  person: {
+    firstName: "Priyanshu",
+    lastName: "Patel",
+    fullName: "Priyanshu Patel",
+    jobTitle: "Software Engineer (Full Stack)",
+    email: "priyanshu.sanjay.patel@gmail.com",
+    location: "Toronto, ON, Canada",
+  },
+  company: "Skinopathy Inc.",
+  school: "York University, Lassonde School of Engineering",
+  defaultTitle: "Priyanshu Patel | Full Stack Software Engineer",
+  defaultDescription:
+    "Priyanshu Patel — Full Stack Software Engineer at Skinopathy Inc. BSc Computer Science, York University (Lassonde). Go, React, Next.js, TypeScript, AWS, Azure. Toronto.",
+  keywords: [
+    "Priyanshu Patel",
+    "Full Stack Software Engineer",
+    "Software Engineer Toronto",
+    "Skinopathy",
+    "York University",
+    "Lassonde School of Engineering",
+    "Go",
+    "Golang",
+    "React",
+    "Next.js",
+    "TypeScript",
+    "JavaScript",
+    "PostgreSQL",
+    "Docker",
+    "AWS",
+    "Azure",
+    "Toronto developer",
+  ],
+  social: {
+    github: "https://github.com/prisp09",
+    linkedin: "https://www.linkedin.com/in/priyanshu-sanjay-patel/",
+    instagram: "https://instagram.com/pri.s.p",
+  },
+} as const;
+
 export const skills = {
   languages: [
     "Go",
