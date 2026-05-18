@@ -12,7 +12,7 @@ export default function About() {
       <SectionTitle icon={<AiOutlineUser />}>About</SectionTitle>
       <div className="w-[69%] min-w-0 max-w-full sm:w-4/5 sm:flex sm:flex-col sm:mx-auto md:w-full md:flex md:flex-col md:mx-auto">
         <SectionText>
-          Full Stack Software Engineer with 2+ years of experience building
+          Full Stack Software Engineer with 4+ years of experience building
           scalable, cloud-native systems using Go, React.js, AWS, and Azure.
           Skilled in clean architecture design, CI/CD optimization with Docker,
           and delivering production-grade software from concept to deployment.
