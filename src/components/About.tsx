@@ -51,14 +51,16 @@ export default function About() {
               className="object-cover object-[45%_center] transition-transform duration-700 group-hover:scale-[1.03]"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/10 to-transparent" />
-            <div className="absolute inset-x-0 bottom-0 flex items-end justify-between p-5">
+            {/* Solid scrim behind the caption so it stays readable on the photo's bright patches */}
+            <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-ink-950 from-45% via-ink-950/80 to-transparent" />
+            <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 p-5">
               <div>
-                <p className="font-mono text-[0.7rem] uppercase tracking-[0.16em] text-fg-dim">
+                <p className="font-mono text-[0.7rem] uppercase tracking-[0.16em] text-fg-muted">
                   Based in
                 </p>
-                <p className="mt-1 text-lg font-medium text-fg">{seo.person.location}</p>
+                <p className="mt-1 text-base font-medium text-fg sm:text-lg">{seo.person.location}</p>
               </div>
-              <span className="rounded-full border border-white/15 bg-ink-950/60 px-3 py-1 font-mono text-[0.7rem] text-fg-muted backdrop-blur">
+              <span className="shrink-0 whitespace-nowrap rounded-full border border-white/15 bg-ink-950/60 px-3 py-1 font-mono text-[0.7rem] text-fg-muted backdrop-blur">
                 <YearsOfExperience /> yrs in production
               </span>
             </div>
