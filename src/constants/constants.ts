@@ -239,7 +239,7 @@ export const education = {
 export const metrics = [
   { value: "315", label: "pull requests authored on Skinopathy OS" },
   { value: "184", label: "pull requests reviewed for teammates" },
-  { value: "197", label: "Linear tickets completed" },
+  { value: "197+", label: "tickets shipped" },
   { value: "16–49", label: "production release cycles cut in 2026" },
 ];
 

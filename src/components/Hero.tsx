@@ -156,7 +156,7 @@ export default function Hero() {
           ))}
         </dl>
         <p className="mx-auto max-w-shell border-t border-white/[0.06] px-5 py-3 font-mono text-[0.68rem] text-fg-dim sm:px-8">
-          Skinopathy OS, Feb 2023 – Sep 2026 · counted from GitHub and Linear
+          Skinopathy OS since Feb 2023 · ticket count covers Linear only, not earlier Jira work
         </p>
       </div>
     </section>
