@@ -41,19 +41,22 @@ export default function About() {
 
       <div className="grid gap-10 md:grid-cols-[0.85fr_1.15fr] md:gap-14">
         <Reveal>
-          <div className="group relative aspect-[4/3] overflow-hidden md:aspect-[4/5] rounded-2xl border border-white/[0.08] bg-ink-850">
-            <Image
-              src={portrait}
-              alt={`Portrait of ${seo.person.fullName}`}
-              fill
-              sizes="(min-width: 768px) 40vw, 100vw"
-              placeholder="blur"
-              className="object-cover object-[45%_center] transition-transform duration-700 group-hover:scale-[1.03]"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/10 to-transparent" />
-            {/* Solid scrim behind the caption so it stays readable on the photo's bright patches */}
-            <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-ink-950 from-45% via-ink-950/80 to-transparent" />
-            <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 p-5">
+          <div className="group relative overflow-hidden rounded-2xl border border-white/[0.08] bg-ink-850 md:aspect-[4/5]">
+            {/* On phones the photo is square with the caption underneath, so nothing covers the face */}
+            <div className="relative aspect-square md:absolute md:inset-0 md:aspect-auto">
+              <Image
+                src={portrait}
+                alt={`Portrait of ${seo.person.fullName}`}
+                fill
+                sizes="(min-width: 768px) 40vw, 100vw"
+                placeholder="blur"
+                className="object-cover object-[45%_40%] transition-transform duration-700 group-hover:scale-[1.03] md:object-[45%_center]"
+              />
+              <div className="absolute inset-0 hidden bg-gradient-to-t from-ink-950 via-ink-950/10 to-transparent md:block" />
+              {/* Dark scrim behind the overlaid caption on larger screens */}
+              <div className="absolute inset-x-0 bottom-0 hidden h-40 bg-gradient-to-t from-ink-950 from-45% via-ink-950/80 to-transparent md:block" />
+            </div>
+            <div className="flex items-end justify-between gap-3 p-5 md:absolute md:inset-x-0 md:bottom-0">
               <div>
                 <p className="font-mono text-[0.7rem] uppercase tracking-[0.16em] text-fg-muted">
                   Based in
