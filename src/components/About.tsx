@@ -2,7 +2,8 @@ import Image from "next/image";
 import React from "react";
 import { FiGitMerge, FiLayers, FiUsers } from "react-icons/fi";
 import portrait from "../../public/images/dp.png";
-import { experience, seo, yearsSince } from "@/constants/constants";
+import { seo } from "@/constants/constants";
+import YearsOfExperience from "./ui/YearsOfExperience";
 import { Section, SectionHeading } from "./ui/Section";
 import Reveal from "./ui/Reveal";
 import SpotlightCard from "./ui/SpotlightCard";
@@ -26,8 +27,6 @@ const PILLARS = [
 ];
 
 export default function About() {
-  const years = yearsSince(experience.startDate);
-
   return (
     <Section id="about">
       <SectionHeading
@@ -60,7 +59,7 @@ export default function About() {
                 <p className="mt-1 text-lg font-medium text-fg">{seo.person.location}</p>
               </div>
               <span className="rounded-full border border-white/15 bg-ink-950/60 px-3 py-1 font-mono text-[0.7rem] text-fg-muted backdrop-blur">
-                {years}+ yrs in production
+                <YearsOfExperience /> yrs in production
               </span>
             </div>
           </div>
@@ -69,7 +68,7 @@ export default function About() {
         <div className="flex flex-col justify-center">
           <Reveal delay={80}>
             <p className="text-pretty text-xl leading-relaxed text-fg sm:text-2xl sm:leading-relaxed">
-              Full Stack Software Engineer with {years}+ years of experience building
+              Full Stack Software Engineer with <YearsOfExperience /> years of experience building
               scalable, cloud-native systems using{" "}
               <span className="text-accent-soft">Go, React.js, AWS and Azure</span>.
             </p>

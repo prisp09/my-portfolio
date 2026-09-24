@@ -40,7 +40,7 @@ export const seo = {
   ],
   social: {
     github: "https://github.com/prisp09",
-    linkedin: "https://www.linkedin.com/in/priyanshu-sanjay-patel/",
+    linkedin: "https://www.linkedin.com/in/prisp09/",
     instagram: "https://instagram.com/pri.s.p",
   },
 } as const;
@@ -246,15 +246,15 @@ export const metrics = [
 export const platformSummary =
   "Skinopathy OS is the EMR dermatology clinics use in Canada and Malaysia. I own clinical workflows across a Next.js frontend, Go APIs, PostgreSQL, a Go scheduler, and a Python Azure Function for OHIP claims.";
 
-/** Whole years since a date, e.g. "3" for Feb 2023 read in Sep 2026 */
+/**
+ * Experience since a date, rounded down to the nearest half year,
+ * e.g. 3.5 for Feb 2023 read in Sep 2026 and 4 from Feb 2027.
+ */
 export function yearsSince(isoDate: string, now: Date = new Date()) {
-  const start = new Date(isoDate);
-  let years = now.getFullYear() - start.getFullYear();
-  if (
-    now.getMonth() < start.getMonth() ||
-    (now.getMonth() === start.getMonth() && now.getDate() < start.getDate())
-  ) {
-    years -= 1;
-  }
-  return Math.max(years, 0);
+  // Parse as a local date; new Date("YYYY-MM-DD") is UTC and can land on the previous day
+  const [y, m, d] = isoDate.split("-").map(Number);
+  const start = new Date(y, m - 1, d);
+  let months = (now.getFullYear() - start.getFullYear()) * 12 + now.getMonth() - start.getMonth();
+  if (now.getDate() < start.getDate()) months -= 1;
+  return Math.max(Math.floor(months / 6) / 2, 0);
 }
