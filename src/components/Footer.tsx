@@ -1,6 +1,6 @@
 import React from "react";
 import { FiArrowUp, FiGithub, FiInstagram, FiLinkedin } from "react-icons/fi";
-import { seo } from "../constants/constants";
+import { seo } from "@/constants/constants";
 
 const SOCIALS = [
   { href: seo.social.github, label: "GitHub", Icon: FiGithub },

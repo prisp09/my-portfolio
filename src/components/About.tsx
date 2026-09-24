@@ -2,7 +2,7 @@ import Image from "next/image";
 import React from "react";
 import { FiGitMerge, FiLayers, FiUsers } from "react-icons/fi";
 import portrait from "../../public/images/dp.png";
-import { experience, seo, yearsSince } from "../constants/constants";
+import { experience, seo, yearsSince } from "@/constants/constants";
 import { Section, SectionHeading } from "./ui/Section";
 import Reveal from "./ui/Reveal";
 import SpotlightCard from "./ui/SpotlightCard";

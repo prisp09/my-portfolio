@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState } from "react";
 import {
   FiArrowUpRight,
@@ -9,7 +11,7 @@ import {
   FiMail,
   FiPhone,
 } from "react-icons/fi";
-import { seo } from "../constants/constants";
+import { seo } from "@/constants/constants";
 import Reveal from "./ui/Reveal";
 
 const LINKS = [

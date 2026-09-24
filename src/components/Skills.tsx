@@ -1,5 +1,5 @@
 import React from "react";
-import { skills } from "../constants/constants";
+import { skills } from "@/constants/constants";
 import { Section, SectionHeading } from "./ui/Section";
 import Reveal from "./ui/Reveal";
 import SpotlightCard from "./ui/SpotlightCard";

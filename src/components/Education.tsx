@@ -1,6 +1,6 @@
 import React from "react";
 import { FiAward, FiUsers } from "react-icons/fi";
-import { education } from "../constants/constants";
+import { education } from "@/constants/constants";
 import { Section, SectionHeading } from "./ui/Section";
 import Reveal from "./ui/Reveal";
 import SpotlightCard from "./ui/SpotlightCard";

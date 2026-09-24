@@ -1,6 +1,6 @@
 import React from "react";
 import { FiArrowUpRight, FiAward } from "react-icons/fi";
-import { keyProjects, otherProjects } from "../constants/constants";
+import { keyProjects, otherProjects } from "@/constants/constants";
 import { Section, SectionHeading } from "./ui/Section";
 import Reveal from "./ui/Reveal";
 import SpotlightCard from "./ui/SpotlightCard";
@@ -42,7 +42,7 @@ export default function Work() {
                 <div className={i === 0 ? "mt-8 md:mt-2 md:text-right" : "mt-8"}>
                   <p
                     className={`whitespace-nowrap font-serif leading-none tracking-tight text-fg ${
-                      i === 0 ? "text-6xl sm:text-8xl" : "text-5xl"
+                      i === 0 ? "text-7xl sm:text-9xl" : "text-5xl"
                     }`}
                   >
                     {p.metric}

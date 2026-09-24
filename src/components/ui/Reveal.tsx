@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useEffect, useRef } from "react";
 
 /** Fades its children up once they scroll into view. */

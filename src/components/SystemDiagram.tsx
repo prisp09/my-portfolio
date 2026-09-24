@@ -1,4 +1,6 @@
-import React, { useEffect, useState } from "react";
+"use client";
+
+import { useMediaQuery } from "@/lib/useMediaQuery";
 
 type Node = {
   x: number;
@@ -49,12 +51,7 @@ function reversePath(d: string) {
 }
 
 export default function SystemDiagram() {
-  const [animate, setAnimate] = useState(false);
-
-  useEffect(() => {
-    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
-    setAnimate(!mq.matches);
-  }, []);
+  const animate = !useMediaQuery("(prefers-reduced-motion: reduce)");
 
   return (
     <figure className="relative">

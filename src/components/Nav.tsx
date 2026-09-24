@@ -1,6 +1,8 @@
+"use client";
+
 import React, { useEffect, useState } from "react";
 import { FiArrowUpRight, FiMenu, FiX } from "react-icons/fi";
-import { seo } from "../constants/constants";
+import { seo } from "@/constants/constants";
 
 const LINKS = [
   { id: "about", label: "About" },
