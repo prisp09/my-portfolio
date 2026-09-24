@@ -68,8 +68,8 @@ export default function Hero() {
             className="mt-8 max-w-xl animate-rise text-pretty text-base leading-relaxed text-fg-muted sm:text-lg"
             style={delay(900)}
           >
-            Full stack engineer at Skinopathy, shipping EMR software for clinicians
-            with Go, React, PostgreSQL, AWS and Azure.
+            Full stack engineer on Skinopathy OS, the EMR dermatology clinics use in
+            Canada and Malaysia. Go, Next.js, PostgreSQL, AWS and Azure.
           </p>
 
           <div className="mt-10 flex animate-rise flex-wrap items-center gap-3" style={delay(1000)}>
@@ -155,6 +155,9 @@ export default function Hero() {
             </Reveal>
           ))}
         </dl>
+        <p className="mx-auto max-w-shell border-t border-white/[0.06] px-5 py-3 font-mono text-[0.68rem] text-fg-dim sm:px-8">
+          Skinopathy OS, Feb 2023 – Sep 2026 · counted from GitHub and Linear
+        </p>
       </div>
     </section>
   );

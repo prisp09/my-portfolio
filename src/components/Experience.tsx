@@ -1,6 +1,6 @@
 import React from "react";
 import { FiArrowUpRight, FiMapPin } from "react-icons/fi";
-import { experience } from "@/constants/constants";
+import { experience, platformSummary } from "@/constants/constants";
 import SystemDiagram from "./SystemDiagram";
 import { Section, SectionHeading } from "./ui/Section";
 import Reveal from "./ui/Reveal";
@@ -9,12 +9,16 @@ const STACK = [
   "Go",
   "Gin Gonic",
   "PostgreSQL",
+  "Next.js",
   "React.js",
   "TypeScript",
   "Tailwind CSS",
   "Docker",
   "Azure",
+  "Azure Functions",
+  "Python",
   "AWS S3",
+  "GitHub Actions",
 ];
 
 export default function Experience() {
@@ -28,6 +32,7 @@ export default function Experience() {
             Shipping healthcare software <span className="accent-text">in production.</span>
           </>
         }
+        intro={platformSummary}
       />
 
       <div className="grid gap-12 lg:grid-cols-[320px_1fr] lg:items-center lg:gap-16">

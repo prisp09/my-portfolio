@@ -5,8 +5,8 @@ import { Section, SectionHeading } from "./ui/Section";
 import Reveal from "./ui/Reveal";
 import SpotlightCard from "./ui/SpotlightCard";
 
-// Bento layout: a wide card and a narrow one, then three equal cards
-const SPANS = ["md:col-span-4", "md:col-span-2", "md:col-span-2", "md:col-span-2", "md:col-span-2"];
+// Bento layout: a wide card and a narrow one, then rows of three
+const SPANS = ["md:col-span-4", ...Array(7).fill("md:col-span-2")];
 
 export default function Work() {
   return (
@@ -19,7 +19,7 @@ export default function Work() {
             Features that moved <span className="accent-text">real numbers.</span>
           </>
         }
-        intro="Highlights from the EMR platform I build at Skinopathy, used by doctors and clinic admins."
+        intro="Highlights from Skinopathy OS, the EMR dermatology clinics use in Canada and Malaysia."
       />
 
       <div className="grid gap-4 md:grid-cols-6">
@@ -35,14 +35,12 @@ export default function Work() {
               </div>
 
               <div
-                className={`flex flex-1 flex-col ${
-                  i === 0 ? "md:flex-row-reverse md:items-start md:justify-between md:gap-10" : ""
-                }`}
+                className="flex flex-1 flex-col"
               >
-                <div className={i === 0 ? "mt-8 md:mt-2 md:text-right" : "mt-8"}>
+                <div className="mt-8">
                   <p
                     className={`whitespace-nowrap font-serif leading-none tracking-tight text-fg ${
-                      i === 0 ? "text-7xl sm:text-9xl" : "text-5xl"
+                      i === 0 ? "text-6xl sm:text-8xl" : "text-5xl"
                     }`}
                   >
                     {p.metric}
@@ -52,17 +50,17 @@ export default function Work() {
                   </p>
                 </div>
 
-                <div className={`flex flex-1 flex-col ${i === 0 ? "md:mt-auto" : ""}`}>
+                <div className="flex flex-1 flex-col">
                   <h3
                     className={`mt-8 font-medium tracking-tight ${
-                      i === 0 ? "text-2xl sm:text-3xl md:mt-16" : "text-xl"
+                      i === 0 ? "text-2xl sm:text-3xl" : "text-xl"
                     }`}
                   >
                     {p.title}
                   </h3>
                   <p
                     className={`mt-3 text-pretty leading-relaxed text-fg-muted ${
-                      i === 0 ? "max-w-md text-base" : "text-sm"
+                      i === 0 ? "max-w-2xl text-base" : "text-sm"
                     }`}
                   >
                     {p.description}

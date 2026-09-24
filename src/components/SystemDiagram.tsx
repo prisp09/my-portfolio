@@ -14,10 +14,10 @@ type Node = {
 const H = 64;
 
 const NODES: Node[] = [
-  { x: 120, y: 18, w: 320, title: "Doctor & admin portals", sub: "React · TypeScript · Tailwind", dot: "#7C95FF" },
-  { x: 180, y: 166, w: 200, title: "REST API", sub: "Go · Gin Gonic", dot: "#FF9F4A" },
+  { x: 120, y: 18, w: 320, title: "Doctor & admin portals", sub: "Next.js · React · TypeScript", dot: "#7C95FF" },
+  { x: 180, y: 166, w: 200, title: "Go APIs", sub: "Gin · scheduler · email", dot: "#FF9F4A" },
   { x: 12, y: 318, w: 164, title: "PostgreSQL", sub: "trigram · tsvector", dot: "#7CE0B5" },
-  { x: 198, y: 318, w: 164, title: "Azure Comms", sub: "chat · calls", dot: "#7C95FF" },
+  { x: 198, y: 318, w: 164, title: "Azure", sub: "Comms · Functions", dot: "#7C95FF" },
   { x: 384, y: 318, w: 164, title: "AWS S3", sub: "PDF thumbnails", dot: "#FFC38A" },
 ];
 
@@ -81,7 +81,7 @@ export default function SystemDiagram() {
           viewBox="0 0 560 400"
           className="block h-auto w-full"
           role="img"
-          aria-label="Architecture sketch: React doctor and admin portals call a Go REST API, running in Docker with CI/CD on GitHub Actions, which talks to PostgreSQL, Azure Communication Services and AWS S3."
+          aria-label="Architecture sketch: Next.js doctor and admin portals call Go APIs, running in Docker with CI/CD on GitHub Actions, which talks to PostgreSQL, Azure Communication Services and Functions, and AWS S3."
         >
           <defs>
             <pattern id="dots" width="16" height="16" patternUnits="userSpaceOnUse">

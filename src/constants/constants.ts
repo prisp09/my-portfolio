@@ -69,6 +69,7 @@ export const skills = {
     "Docker",
     "AWS (S3, EC2)",
     "Microsoft Azure",
+    "Azure Functions",
     "GitHub Actions",
     "MongoDB Atlas",
   ],
@@ -83,40 +84,64 @@ export const skills = {
   ],
 };
 
+/**
+ * Skinopathy OS work. Descriptions merge the résumé bullets with the GitHub and
+ * Linear work record (~/playground/skinopathy-work.md, Feb 2023 – Sep 2026).
+ */
 export const keyProjects = [
   {
-    id: "templater",
-    title: "Templater Engine",
+    id: "prescriptions",
+    title: "Prescriptions Module → 2.0",
     org: "Skinopathy",
     description:
-      "Built a dynamic note-templating engine using Slate.js, automating prescription linkage and patient data filling, improving encounter speed by 100%.",
+      "Led an end-to-end prescriptions module with PostgreSQL fuzzy search (trigrams + tsvector) at sub-300ms across large datasets. Then shipped Prescriptions 2.0 across the EMR and the patient web portal: prescriptions without an encounter, dosage and catalog strength on the PDF, pharmacy match on phone number, fax-to-pharmacy, and re-prescription from history.",
+    tags: ["PostgreSQL", "Go", "Next.js", "Patient portal"],
+    metric: "<300 ms",
+    metricLabel: "fuzzy search · ~70 PRs",
+  },
+  {
+    id: "templater",
+    title: "Encounter Notes & Templater",
+    org: "Skinopathy",
+    description:
+      "Built the note-templating engine (Slate.js) clinicians use during visits, doubling encounter speed. Added template versioning and drafts, appointment-linked notes, walk-in encounter plus appointment creation, and favorite templates.",
     tags: ["Slate.js", "React", "EMR"],
     metric: "2×",
     metricLabel: "encounter speed",
   },
   {
-    id: "encounter-notes",
-    title: "Encounter Notes",
+    id: "billing",
+    title: "Billing, OHIP Claims & Inventory",
     org: "Skinopathy",
     description:
-      "Developed the EMR's core note module integrating billing, orders, and prescriptions with TanStack Query and SRFax API, reducing documentation time from hours to minutes.",
-    tags: ["TanStack Query", "SRFax API", "EMR"],
-    metric: "Hours → min",
-    metricLabel: "documentation time",
+      "Delivered inventory and private-pay billing: drug and product catalog, invoice generation, and bills that open their appointment and encounter. Extended the OHIP claims Function App with fee-schedule parsing and claim submit and response handling.",
+    tags: ["Python", "Azure Functions", "Go"],
+    metric: "OHIP",
+    metricLabel: "claims function app",
   },
   {
-    id: "prescriptions",
-    title: "Prescriptions Module",
+    id: "fax",
+    title: "Chart Fax & PDF Pipeline",
     org: "Skinopathy",
     description:
-      "Led development of an end-to-end prescriptions module with PostgreSQL fuzzy search (trigrams + tsvector), achieving sub-300ms query speeds across large datasets.",
-    tags: ["PostgreSQL", "Go", "Full-text search"],
-    metric: "<300 ms",
-    metricLabel: "fuzzy search queries",
+      "Rebuilt outbound fax from the patient chart: multi-document bundles, cover letters, SRFax, clinic sender numbers and multi-doctor sends, plus the PDF pipeline that keeps chart documents printable.",
+    tags: ["SRFax API", "react-pdf", "pdf-lib"],
+    metric: "~30 PRs",
+    metricLabel: "fax, documents & PDFs",
+  },
+  {
+    id: "scheduling",
+    title: "Appointments & Scheduler",
+    org: "Skinopathy",
+    description:
+      "A shared appointment selector for billing and encounters, slot-duration and doctor-slot time fixes, multi-location doctor slots, and editable walk-in queue notes across the EMR and the Go scheduling service.",
+    tags: ["Go", "Scheduler", "Next.js"],
+    metric: "~28 PRs",
+    metricLabel: "scheduling work",
   },
   {
     id: "acs",
-    title: "Azure Communication Services Integration",
+    title: "Azure Communication Services",
     org: "Skinopathy",
     description:
       "Implemented Azure Communication Services in a Go backend (without SDK support), enabling encrypted, government-compliant doctor–patient chat and calls.",
@@ -133,6 +158,16 @@ export const keyProjects = [
     tags: ["AWS S3", "Go", "Performance"],
     metric: "−80%",
     metricLabel: "dashboard load time",
+  },
+  {
+    id: "getskinbeauty",
+    title: "GetSkinBeauty Recommender",
+    org: "Skinopathy",
+    description:
+      "An in-chart product recommender with favorites, an Excel-to-database catalog updater (SKU, price, skin concerns, product URLs), and recommendation-email metrics in the email service.",
+    tags: ["Go", "Email service", "Data import"],
+    metric: "Excel → DB",
+    metricLabel: "catalog updater",
   },
 ];
 
@@ -184,6 +219,8 @@ export const experience = {
     "Containerized backend microservices using Docker, improving deployment consistency and CI/CD reliability.",
     "Partnered with product, design, and QA to deliver major features 15% faster by optimizing team workflows.",
     "Trained junior developers and contributed to architecture decisions across backend services.",
+    "Cut Skinopathy OS production releases through 2026 (cycles 16 to 49) across frontend, backend, scheduler, and email, and wrote the clinician-facing release notes.",
+    "Reviewed 184 pull requests, from 11 in 2023 to around 45 a year since 2024.",
   ],
 };
 
@@ -198,13 +235,16 @@ export const education = {
   activities: ["Orientation Leader", "YUHacks Volunteer", "University Tour Guide"],
 };
 
-/** Headline numbers, all taken from the experience and project bullets above */
+/** Scale of the Skinopathy work, from GitHub and Linear (Feb 2023 – Sep 2026) */
 export const metrics = [
-  { value: "−50%", label: "API response time on Go and PostgreSQL services" },
-  { value: "−80%", label: "dashboard load time after an S3 thumbnail pipeline" },
-  { value: "<300ms", label: "fuzzy search across large prescription datasets" },
-  { value: "2×", label: "encounter speed with the note templating engine" },
+  { value: "315", label: "pull requests authored on Skinopathy OS" },
+  { value: "184", label: "pull requests reviewed for teammates" },
+  { value: "197", label: "Linear tickets completed" },
+  { value: "16–49", label: "production release cycles cut in 2026" },
 ];
+
+export const platformSummary =
+  "Skinopathy OS is the EMR dermatology clinics use in Canada and Malaysia. I own clinical workflows across a Next.js frontend, Go APIs, PostgreSQL, a Go scheduler, and a Python Azure Function for OHIP claims.";
 
 /** Whole years since a date, e.g. "3" for Feb 2023 read in Sep 2026 */
 export function yearsSince(isoDate: string, now: Date = new Date()) {
