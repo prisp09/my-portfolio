@@ -1,74 +1,101 @@
-"use client";
+/*
+ * Stack map of Skinopathy OS, drawn as tiers rather than exact call paths.
+ * Every box comes from the résumé or the GitHub/Linear work record.
+ */
 
-import { useMediaQuery } from "@/lib/useMediaQuery";
+type Tone = "cool" | "warm" | "mint" | "sand";
 
 type Node = {
-  x: number;
-  y: number;
-  w: number;
   title: string;
   sub: string;
-  dot: string;
+  tone: Tone;
+  stat?: string;
 };
 
-const H = 64;
+type Tier = {
+  label: string;
+  note?: string;
+  boundary?: boolean;
+  cols: string;
+  nodes: Node[];
+};
 
-const NODES: Node[] = [
-  { x: 120, y: 18, w: 320, title: "Doctor & admin portals", sub: "Next.js · React · TypeScript", dot: "#7C95FF" },
-  { x: 180, y: 166, w: 200, title: "Go APIs", sub: "Gin · scheduler · email", dot: "#FF9F4A" },
-  { x: 12, y: 318, w: 164, title: "PostgreSQL", sub: "trigram · tsvector", dot: "#7CE0B5" },
-  { x: 198, y: 318, w: 164, title: "Azure", sub: "Comms · Functions", dot: "#7C95FF" },
-  { x: 384, y: 318, w: 164, title: "AWS S3", sub: "PDF thumbnails", dot: "#FFC38A" },
+const TIERS: Tier[] = [
+  {
+    label: "Clients",
+    cols: "grid-cols-2",
+    nodes: [
+      { title: "EMR web app", sub: "Next.js · React · TypeScript", tone: "cool" },
+      { title: "Patient web portal", sub: "Prescriptions 2.0", tone: "cool" },
+    ],
+  },
+  {
+    label: "Go services",
+    note: "Docker · GitHub Actions",
+    boundary: true,
+    cols: "grid-cols-2 lg:grid-cols-4",
+    nodes: [
+      { title: "EMR API", sub: "Gin · REST", tone: "warm", stat: "−50% response time" },
+      { title: "Portal API", sub: "patient portal backend", tone: "warm" },
+      { title: "Scheduler", sub: "appointments · slots", tone: "warm" },
+      { title: "Email service", sub: "recommendation metrics", tone: "warm" },
+    ],
+  },
+  {
+    label: "Data & cloud",
+    cols: "grid-cols-2 sm:grid-cols-3 lg:grid-cols-5",
+    nodes: [
+      { title: "PostgreSQL", sub: "trigram · tsvector", tone: "mint", stat: "<300 ms search" },
+      { title: "S3 · PDFs", sub: "chart documents", tone: "sand" },
+      { title: "S3 · thumbnails", sub: "PDF previews", tone: "sand", stat: "−80% load time" },
+      { title: "Azure Comms", sub: "encrypted chat · calls", tone: "cool" },
+      { title: "OHIP claims", sub: "Python · Azure Functions", tone: "cool" },
+    ],
+  },
+  {
+    label: "Integrations",
+    cols: "grid-cols-2 sm:grid-cols-3",
+    nodes: [
+      { title: "SRFax API", sub: "chart & pharmacy fax", tone: "sand" },
+      { title: "OHIP", sub: "claim submit · response", tone: "mint" },
+      { title: "Excel catalog", sub: "GetSkinBeauty products", tone: "sand" },
+    ],
+  },
 ];
 
-const EDGES = [
-  "M280 82 L280 166",
-  "M280 230 C280 284 94 266 94 318",
-  "M280 230 L280 318",
-  "M280 230 C280 284 466 266 466 318",
-];
+const DOT: Record<Tone, string> = {
+  cool: "bg-cool",
+  warm: "bg-accent",
+  mint: "bg-emerald-300",
+  sand: "bg-accent-soft",
+};
 
-// Packets travelling along the edges: [edge index, reverse?, delay seconds]
-const PACKETS: [number, boolean, number][] = [
-  [0, false, 0],
-  [0, true, 1.3],
-  [1, false, 0.5],
-  [2, false, 1.1],
-  [3, false, 1.7],
-  [1, true, 2.2],
-  [3, true, 0.2],
-];
-
-function reversePath(d: string) {
-  // Only handles the "M a b L c d" and "M a b C ... x y" shapes used above.
-  const nums = d.match(/-?\d+(\.\d+)?/g)!.map(Number);
-  if (d.includes("C")) {
-    const [x0, y0, c1x, c1y, c2x, c2y, x1, y1] = nums;
-    return `M${x1} ${y1} C${c2x} ${c2y} ${c1x} ${c1y} ${x0} ${y0}`;
-  }
-  const [x0, y0, x1, y1] = nums;
-  return `M${x1} ${y1} L${x0} ${y0}`;
+function Connector() {
+  return (
+    <div aria-hidden className="relative mx-auto h-7 w-px overflow-hidden bg-white/10">
+      <span className="absolute inset-x-0 h-3 animate-flow bg-gradient-to-b from-transparent via-accent to-transparent" />
+    </div>
+  );
 }
 
 export default function SystemDiagram() {
-  const animate = !useMediaQuery("(prefers-reduced-motion: reduce)");
-
   return (
     <figure className="relative">
-      {/* glow behind the card */}
       <div
         aria-hidden
-        className="absolute -inset-6 -z-10 rounded-[2rem] bg-[radial-gradient(closest-side,rgba(124,149,255,0.16),transparent)] blur-2xl"
+        className="absolute -inset-6 -z-10 rounded-[2rem] bg-[radial-gradient(closest-side,rgba(124,149,255,0.14),transparent)] blur-2xl"
       />
-      <div className="overflow-hidden rounded-2xl border border-white/[0.09] bg-ink-900/80 shadow-[0_30px_80px_-30px_rgba(0,0,0,0.8)] backdrop-blur">
-        <div className="flex items-center justify-between border-b border-white/[0.06] px-4 py-3">
+      <div className="glass overflow-hidden rounded-2xl border border-white/[0.09] shadow-[0_30px_80px_-30px_rgba(0,0,0,0.8)]">
+        <div className="flex items-center justify-between gap-3 border-b border-white/[0.06] px-4 py-3">
           <div className="flex items-center gap-1.5" aria-hidden>
             <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
             <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
             <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
           </div>
-          <span className="font-mono text-[0.7rem] text-fg-dim">stack.map</span>
-          <span className="flex items-center gap-1.5 font-mono text-[0.68rem] text-fg-muted">
+          <span className="truncate font-mono text-[0.7rem] text-fg-dim">
+            <span className="hidden sm:inline">skinopathy-os / </span>stack.map
+          </span>
+          <span className="flex shrink-0 items-center gap-1.5 font-mono text-[0.68rem] text-fg-muted">
             <span className="relative flex h-1.5 w-1.5">
               <span className="absolute inline-flex h-full w-full animate-pulse-dot rounded-full bg-emerald-400" />
               <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-400" />
@@ -77,115 +104,48 @@ export default function SystemDiagram() {
           </span>
         </div>
 
-        <svg
-          viewBox="0 0 560 400"
-          className="block h-auto w-full"
-          role="img"
-          aria-label="Architecture sketch: Next.js doctor and admin portals call Go APIs, running in Docker with CI/CD on GitHub Actions, which talks to PostgreSQL, Azure Communication Services and Functions, and AWS S3."
-        >
-          <defs>
-            <pattern id="dots" width="16" height="16" patternUnits="userSpaceOnUse">
-              <circle cx="1" cy="1" r="1" fill="rgba(255,255,255,0.06)" />
-            </pattern>
-            <filter id="glow" x="-200%" y="-200%" width="500%" height="500%">
-              <feGaussianBlur stdDeviation="3" result="b" />
-              <feMerge>
-                <feMergeNode in="b" />
-                <feMergeNode in="SourceGraphic" />
-              </feMerge>
-            </filter>
-          </defs>
-
-          <rect width="560" height="400" fill="url(#dots)" />
-
-          {/* Docker / CI boundary around the API */}
-          <rect
-            x="150"
-            y="132"
-            width="260"
-            height="116"
-            rx="18"
-            fill="rgba(255,159,74,0.03)"
-            stroke="rgba(255,159,74,0.35)"
-            strokeDasharray="4 5"
-          />
-          <text x="166" y="152" className="fill-accent/80 font-mono" fontSize="9.5" letterSpacing="1.2">
-            DOCKER · CI/CD
-          </text>
-
-          {EDGES.map((d) => (
-            <g key={d}>
-              <path d={d} fill="none" stroke="rgba(255,255,255,0.12)" strokeWidth="1.25" />
-              <path
-                d={d}
-                fill="none"
-                stroke="rgba(255,159,74,0.45)"
-                strokeWidth="1.25"
-                strokeDasharray="3 9"
-                className={animate ? "animate-dash" : undefined}
-              />
-            </g>
-          ))}
-
-          <text x="292" y="118" className="fill-fg-dim font-mono" fontSize="10">
-            REST · JSON
-          </text>
-
-          {animate &&
-            PACKETS.map(([edge, reverse, delay], i) => (
-              <circle
-                key={i}
-                r="3"
-                fill={reverse ? "#AAB9FF" : "#FFB36B"}
-                filter="url(#glow)"
-                opacity="0"
+        <div className="bg-[radial-gradient(rgba(255,255,255,0.05)_1px,transparent_1px)] [background-size:16px_16px] p-3 sm:p-6">
+          {TIERS.map((tier, t) => (
+            <div key={tier.label}>
+              {t > 0 && <Connector />}
+              <section
+                aria-label={tier.label}
+                className={`rounded-xl p-3 sm:p-4 ${
+                  tier.boundary
+                    ? "border border-dashed border-accent/35 bg-accent/[0.03]"
+                    : "border border-white/[0.05] bg-white/[0.015]"
+                }`}
               >
-                <animateMotion
-                  dur="2.6s"
-                  begin={`${delay}s`}
-                  repeatCount="indefinite"
-                  path={reverse ? reversePath(EDGES[edge]) : EDGES[edge]}
-                  keyPoints="0;1"
-                  keyTimes="0;1"
-                  calcMode="spline"
-                  keySplines="0.4 0 0.2 1"
-                />
-                <animate
-                  attributeName="opacity"
-                  values="0;1;1;0"
-                  keyTimes="0;0.1;0.85;1"
-                  dur="2.6s"
-                  begin={`${delay}s`}
-                  repeatCount="indefinite"
-                />
-              </circle>
-            ))}
-
-          {NODES.map((n) => (
-            <g key={n.title}>
-              <rect
-                x={n.x}
-                y={n.y}
-                width={n.w}
-                height={H}
-                rx="12"
-                fill="#10131A"
-                stroke="rgba(255,255,255,0.1)"
-              />
-              <circle cx={n.x + 20} cy={n.y + H / 2} r="3.5" fill={n.dot} />
-              <circle cx={n.x + 20} cy={n.y + H / 2} r="8" fill={n.dot} opacity="0.12" />
-              <text x={n.x + 36} y={n.y + 28} className="fill-fg font-sans" fontSize="14" fontWeight="500">
-                {n.title}
-              </text>
-              <text x={n.x + 36} y={n.y + 46} className="fill-fg-dim font-mono" fontSize="10.5">
-                {n.sub}
-              </text>
-            </g>
+                <div className="mb-3 flex items-baseline justify-between gap-3 font-mono text-[0.66rem] uppercase tracking-[0.14em]">
+                  <span className={tier.boundary ? "text-accent/90" : "text-fg-dim"}>{tier.label}</span>
+                  {tier.note && <span className="truncate text-accent/70">{tier.note}</span>}
+                </div>
+                <ul className={`grid gap-2 ${tier.cols}`}>
+                  {tier.nodes.map((n) => (
+                    <li
+                      key={n.title}
+                      className="min-w-0 rounded-lg border border-white/[0.08] bg-ink-850/90 px-3 py-2.5 transition-colors hover:border-accent/40"
+                    >
+                      <div className="flex items-baseline gap-2">
+                        <span className={`h-1.5 w-1.5 shrink-0 -translate-y-px rounded-full ${DOT[n.tone]}`} />
+                        <span className="text-[0.82rem] font-medium leading-tight text-fg">{n.title}</span>
+                      </div>
+                      <p className="mt-1 pl-3.5 font-mono text-[0.64rem] leading-snug text-fg-dim">{n.sub}</p>
+                      {n.stat && (
+                        <p className="mt-1.5 pl-3.5 font-mono text-[0.64rem] leading-snug text-accent-soft">
+                          {n.stat}
+                        </p>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            </div>
           ))}
-        </svg>
+        </div>
       </div>
       <figcaption className="mt-3 text-center font-mono text-[0.7rem] text-fg-dim">
-        The stack I build and ship at Skinopathy
+        Skinopathy OS by tier · the systems I work across
       </figcaption>
     </figure>
   );

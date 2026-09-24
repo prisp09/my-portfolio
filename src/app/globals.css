@@ -29,6 +29,7 @@
   --animate-marquee: marquee 45s linear infinite;
   --animate-pulse-dot: pulse-dot 1.8s cubic-bezier(0, 0, 0.2, 1) infinite;
   --animate-dash: dash 1.2s linear infinite;
+  --animate-flow: flow 1.8s linear infinite;
   --animate-scroll-hint: scroll-hint 2.2s cubic-bezier(0.6, 0, 0.3, 1) infinite;
 
   @keyframes rise {
@@ -61,6 +62,14 @@
   @keyframes dash {
     to {
       stroke-dashoffset: -24;
+    }
+  }
+  @keyframes flow {
+    from {
+      transform: translateY(-100%);
+    }
+    to {
+      transform: translateY(260%);
     }
   }
   @keyframes scroll-hint {
