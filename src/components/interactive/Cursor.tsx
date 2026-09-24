@@ -54,7 +54,7 @@ export default function Cursor() {
       const el = (e.target as Element | null)?.closest?.(INTERACTIVE) as HTMLElement | null;
       hovering = !!el;
       ring.current?.classList.toggle("is-hover", hovering);
-      dot.current?.classList.toggle("scale-0", hovering);
+      dot.current?.firstElementChild?.classList.toggle("scale-0", hovering);
       setLabel(el?.dataset.cursor ?? "");
     };
     const onLeave = () => {
@@ -95,11 +95,15 @@ export default function Cursor() {
           </span>
         )}
       </div>
+      {/* The outer div follows the pointer; only the inner dot scales, so shrinking it
+          on hover can't pull it toward the page's top-left corner */}
       <div
         ref={dot}
         aria-hidden
-        className="pointer-events-none fixed left-0 top-0 z-[100] h-1.5 w-1.5 rounded-full bg-accent opacity-0 transition-[opacity,scale] duration-200"
-      />
+        className="pointer-events-none fixed left-0 top-0 z-[100] opacity-0 transition-opacity duration-200"
+      >
+        <div className="cursor-dot h-1.5 w-1.5 rounded-full bg-accent transition-transform duration-200" />
+      </div>
     </>
   );
 }
