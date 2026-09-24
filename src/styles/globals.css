@@ -4,82 +4,139 @@
 
 @layer base {
   :root {
-    --background: 222 47% 8%;
-    --foreground: 204 24% 96%;
-    --radius: 0.5rem;
-  }
-}
-
-@layer base {
-  * {
-    box-sizing: border-box;
+    color-scheme: dark;
   }
   html {
     scroll-behavior: smooth;
-    overflow-x: hidden;
-    width: 100%;
-    max-width: 100%;
+    scroll-padding-top: 6rem;
+    -webkit-text-size-adjust: 100%;
   }
   body {
-    @apply antialiased cursor-default;
+    @apply bg-ink-950 font-sans text-fg antialiased;
     overflow-x: hidden;
-    width: 100%;
-    max-width: 100%;
-    font-family: "Space Grotesk", system-ui, sans-serif;
-    background: #0f1624;
-    color: hsl(204, 23.8%, 95.9%);
-    font-size: 1.6rem;
+    text-rendering: optimizeLegibility;
   }
-  h1, h2, h3, h4, h5, h6, button {
-    font-family: "Space Grotesk", system-ui, sans-serif;
+  ::selection {
+    background: rgba(255, 159, 74, 0.35);
+    color: #fff;
   }
-  a {
-    text-decoration: none;
-  }
-  li {
-    list-style: none;
+  :focus-visible {
+    outline: 2px solid theme("colors.accent.DEFAULT");
+    outline-offset: 3px;
+    border-radius: 6px;
   }
 }
 
-/* Scrollbar: transparent track + floating glass thumb */
+@layer components {
+  /* Italic serif accent used inside headings */
+  .accent-text {
+    @apply font-serif font-normal italic;
+    background: linear-gradient(100deg, #ffc38a 0%, #ff9f4a 45%, #f46737 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    padding-right: 0.06em;
+  }
+
+  .chip {
+    @apply inline-flex items-center rounded-full border border-white/[0.08] bg-white/[0.03] px-3 py-1 font-mono text-[0.72rem] tracking-tight text-fg-muted;
+  }
+
+  .bg-grid {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+    background-size: 56px 56px;
+  }
+
+  /* Cursor-following glow on cards; --mx/--my are set from JS */
+  .spotlight::before,
+  .spotlight::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+  }
+  .spotlight::before {
+    background: radial-gradient(
+      420px circle at var(--mx, 50%) var(--my, 50%),
+      rgba(255, 159, 74, 0.09),
+      transparent 45%
+    );
+  }
+  .spotlight::after {
+    padding: 1px;
+    background: radial-gradient(
+      320px circle at var(--mx, 50%) var(--my, 50%),
+      rgba(255, 170, 100, 0.55),
+      transparent 45%
+    );
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+  }
+  .spotlight:hover::before,
+  .spotlight:hover::after {
+    opacity: 1;
+  }
+}
+
+/* Film grain over the whole page */
+.grain {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Scroll reveal: only hide content when JS is running, so it never stays invisible */
+.js [data-reveal] {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.9s cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
+  transition-delay: var(--d, 0ms);
+}
+.js [data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Thin floating scrollbar */
 html {
   scrollbar-width: thin;
-  scrollbar-color: rgba(255, 255, 255, 0.25) transparent;
+  scrollbar-color: rgba(255, 255, 255, 0.18) transparent;
 }
 ::-webkit-scrollbar {
   width: 10px;
-  height: 10px;
 }
 ::-webkit-scrollbar-track {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
   background: rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
   border-radius: 9999px;
   border: 2px solid transparent;
   background-clip: padding-box;
 }
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.22);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-}
-::-webkit-scrollbar-thumb:active {
-  background: rgba(255, 255, 255, 0.28);
-}
 
-@keyframes changeBG {
-  0%, 100% { background: #1388c7; }
-  50% { background: #b133ff; }
-}
-
-@keyframes bounceIn {
-  0% { opacity: 0; transform: translateX(-60px); }
-  100% { opacity: 1; transform: translateX(0); }
-}
-
-.animate-changeBG {
-  animation: changeBG 5s ease infinite;
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .js [data-reveal] {
+    opacity: 1;
+    transform: none;
+  }
 }

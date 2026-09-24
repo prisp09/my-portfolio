@@ -1,79 +1,64 @@
 import type { Config } from "tailwindcss";
 
 export default {
-  darkMode: ["class"],
-  content: [
-    "./src/pages/**/*.{js,jsx,ts,tsx}",
-    "./src/components/**/*.{js,jsx,ts,tsx}",
-    "./src/layout/**/*.{js,jsx,ts,tsx}",
-    "./src/styles/**/*.{js,jsx,ts,tsx}",
-  ],
-  prefix: "",
+  content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
-    container: {
-      center: true,
-      padding: "2rem",
-      screens: {
-        "2xl": "1400px",
-      },
-    },
     extend: {
       fontFamily: {
-        sans: ["Space Grotesk", "system-ui", "sans-serif"],
-        title: ["Space Grotesk", "system-ui", "sans-serif"],
+        sans: ["var(--font-sans)", "system-ui", "sans-serif"],
+        serif: ["var(--font-serif)", "Georgia", "serif"],
+        mono: ["var(--font-mono)", "ui-monospace", "monospace"],
       },
       colors: {
-        portfolio: {
-          dark: "#0F1624",
-          card: "hsl(232.7,27.3%,23.7%)",
-          accent: "hsl(34.9,98.6%,72.9%)",
-          link: "#F46737",
+        ink: {
+          950: "#07080C",
+          900: "#0C0E14",
+          850: "#10131A",
+          800: "#151922",
+          700: "#1E2330",
         },
-        border: "hsl(var(--border))",
-        input: "hsl(var(--input))",
-        ring: "hsl(var(--ring))",
-        background: "hsl(var(--background))",
-        foreground: "hsl(var(--foreground))",
-        primary: {
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
-        },
-        secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
-        },
-        muted: {
-          DEFAULT: "hsl(var(--muted))",
-          foreground: "hsl(var(--muted-foreground))",
+        fg: {
+          DEFAULT: "#ECEDF1",
+          muted: "#A0A5B2",
+          dim: "#6B7180",
         },
         accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
+          DEFAULT: "#FF9F4A",
+          soft: "#FFC38A",
+          deep: "#F46737",
         },
-        destructive: {
-          DEFAULT: "hsl(var(--destructive))",
-          foreground: "hsl(var(--destructive-foreground))",
-        },
-        card: {
-          DEFAULT: "hsl(var(--card))",
-          foreground: "hsl(var(--card-foreground))",
+        cool: {
+          DEFAULT: "#7C95FF",
+          soft: "#AAB9FF",
         },
       },
-      borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
+      maxWidth: {
+        shell: "72rem",
       },
       keyframes: {
-        "gradient-shift": {
-          "0%, 100%": { opacity: "0.9" },
-          "50%": { opacity: "1" },
+        rise: {
+          "0%": { opacity: "0", transform: "translateY(18px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        marquee: {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-50%)" },
+        },
+        pulseDot: {
+          "0%": { transform: "scale(1)", opacity: "0.7" },
+          "100%": { transform: "scale(2.6)", opacity: "0" },
+        },
+        dash: {
+          to: { strokeDashoffset: "-24" },
         },
       },
       animation: {
-        "gradient-shift": "gradient-shift 3s ease-in-out infinite",
+        rise: "rise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both",
+        marquee: "marquee 40s linear infinite",
+        "pulse-dot": "pulseDot 1.8s cubic-bezier(0, 0, 0.2, 1) infinite",
+        dash: "dash 1.2s linear infinite",
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [],
 } satisfies Config;

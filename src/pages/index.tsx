@@ -1,11 +1,12 @@
 import Head from "next/head";
-import Hero from "../components/Hero/Hero";
-import Projects from "../components/Projects/Projects";
-import Technologies from "../components/Technologies/Technologies";
-import About from "../components/About/About";
-import ExperienceEducation from "../components/ExperienceEducation/ExperienceEducation";
+import About from "../components/About";
+import Contact from "../components/Contact";
+import Education from "../components/Education";
+import Experience from "../components/Experience";
+import Hero from "../components/Hero";
+import Skills from "../components/Skills";
+import Work from "../components/Work";
 import Layout from "../layout/Layout";
-import { Section } from "../styles/GlobalComponents";
 import { seo, skills } from "../constants/constants";
 
 function getJsonLdPerson() {
@@ -57,6 +58,7 @@ export default function Home() {
         <meta name="author" content={seo.person.fullName} />
         <meta name="robots" content="index, follow" />
         <meta name="geo.region" content="CA-ON" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 
         {/* Open Graph */}
         <meta property="og:type" content="website" />
@@ -79,13 +81,13 @@ export default function Home() {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </Head>
-      <Section>
-        <Hero />
-      </Section>
+      <Hero />
       <About />
-      <ExperienceEducation />
-      <Technologies />
-      <Projects />
+      <Experience />
+      <Work />
+      <Skills />
+      <Education />
+      <Contact />
     </Layout>
   );
 }

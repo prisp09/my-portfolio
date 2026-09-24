@@ -9,8 +9,11 @@ export const seo = {
     fullName: "Priyanshu Patel",
     jobTitle: "Software Engineer (Full Stack)",
     email: "priyanshu.sanjay.patel@gmail.com",
+    phone: "647-568-9541",
+    phoneHref: "tel:+16475689541",
     location: "Toronto, ON, Canada",
   },
+  resumePath: "/Priyanshu-Patel-Resume.pdf",
   company: "Skinopathy Inc.",
   school: "York University, Lassonde School of Engineering",
   defaultTitle: "Priyanshu Patel | Full Stack Software Engineer",
@@ -88,6 +91,8 @@ export const keyProjects = [
     description:
       "Built a dynamic note-templating engine using Slate.js, automating prescription linkage and patient data filling, improving encounter speed by 100%.",
     tags: ["Slate.js", "React", "EMR"],
+    metric: "2×",
+    metricLabel: "encounter speed",
   },
   {
     id: "encounter-notes",
@@ -96,6 +101,8 @@ export const keyProjects = [
     description:
       "Developed the EMR's core note module integrating billing, orders, and prescriptions with TanStack Query and SRFax API, reducing documentation time from hours to minutes.",
     tags: ["TanStack Query", "SRFax API", "EMR"],
+    metric: "Hours → min",
+    metricLabel: "documentation time",
   },
   {
     id: "prescriptions",
@@ -104,6 +111,8 @@ export const keyProjects = [
     description:
       "Led development of an end-to-end prescriptions module with PostgreSQL fuzzy search (trigrams + tsvector), achieving sub-300ms query speeds across large datasets.",
     tags: ["PostgreSQL", "Go", "Full-text search"],
+    metric: "<300 ms",
+    metricLabel: "fuzzy search queries",
   },
   {
     id: "acs",
@@ -112,6 +121,8 @@ export const keyProjects = [
     description:
       "Implemented Azure Communication Services in a Go backend (without SDK support), enabling encrypted, government-compliant doctor–patient chat and calls.",
     tags: ["Go", "Azure", "Compliance"],
+    metric: "No SDK",
+    metricLabel: "built directly in Go",
   },
   {
     id: "s3-optimization",
@@ -120,6 +131,8 @@ export const keyProjects = [
     description:
       "Reduced dashboard load times by 80% through a thumbnail-generation pipeline for PDF previews, improving admin productivity.",
     tags: ["AWS S3", "Go", "Performance"],
+    metric: "−80%",
+    metricLabel: "dashboard load time",
   },
 ];
 
@@ -161,6 +174,7 @@ export const experience = {
   company: "Skinopathy Inc.",
   location: "Toronto, ON",
   period: "February 2023 – Present",
+  startDate: "2023-02-01",
   yearStart: 2023,
   yearEnd: null as number | null, // null = present
   highlights: [
@@ -184,31 +198,23 @@ export const education = {
   activities: ["Orientation Leader", "YUHacks Volunteer", "University Tour Guide"],
 };
 
-/** Timeline entries for Experience & Education, sorted by year (oldest first) */
-export const timelineEntries = [
-  {
-    type: "education" as const,
-    id: "education",
-    yearStart: education.yearStart,
-    yearEnd: education.yearEnd,
-    period: education.period,
-    title: education.degree,
-    subtitle: education.school,
-    location: education.location,
-    details: [
-      `Awards: ${education.awards.join(", ")}`,
-      `Activities: ${education.activities.join(", ")}`,
-    ],
-  },
-  {
-    type: "experience" as const,
-    id: "experience",
-    yearStart: experience.yearStart,
-    yearEnd: experience.yearEnd,
-    period: experience.period,
-    title: `${experience.role} · ${experience.company}`,
-    subtitle: experience.location,
-    location: experience.location,
-    details: experience.highlights,
-  },
-].sort((a, b) => a.yearStart - b.yearStart);
+/** Headline numbers, all taken from the experience and project bullets above */
+export const metrics = [
+  { value: "−50%", label: "API response time on Go and PostgreSQL services" },
+  { value: "−80%", label: "dashboard load time after an S3 thumbnail pipeline" },
+  { value: "<300ms", label: "fuzzy search across large prescription datasets" },
+  { value: "2×", label: "encounter speed with the note templating engine" },
+];
+
+/** Whole years since a date, e.g. "3" for Feb 2023 read in Sep 2026 */
+export function yearsSince(isoDate: string, now: Date = new Date()) {
+  const start = new Date(isoDate);
+  let years = now.getFullYear() - start.getFullYear();
+  if (
+    now.getMonth() < start.getMonth() ||
+    (now.getMonth() === start.getMonth() && now.getDate() < start.getDate())
+  ) {
+    years -= 1;
+  }
+  return Math.max(years, 0);
+}
