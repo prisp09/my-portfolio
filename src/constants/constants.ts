@@ -73,6 +73,7 @@ export const skills = {
     "GitHub Actions",
     "MongoDB Atlas",
   ],
+  aiTools: ["Claude", "Cursor", "GitHub Copilot"],
   concepts: [
     "REST API Design",
     "Microservices",

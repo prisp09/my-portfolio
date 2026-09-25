@@ -9,6 +9,7 @@ const GROUPS = [
   { title: "Frameworks & libraries", items: skills.frameworks },
   { title: "Cloud & DevOps", items: skills.devOpsTools },
   { title: "Concepts", items: skills.concepts },
+  { title: "AI-Assisted Development", items: skills.aiTools },
 ];
 
 const MARQUEE = [...skills.languages, ...skills.frameworks, ...skills.devOpsTools];
@@ -45,7 +46,11 @@ export default function Skills() {
 
       <div className="grid gap-4 sm:grid-cols-2">
         {GROUPS.map((g, i) => (
-          <Reveal key={g.title} delay={(i % 2) * 90}>
+          <Reveal
+            key={g.title}
+            delay={(i % 2) * 90}
+            className={i === GROUPS.length - 1 && GROUPS.length % 2 ? "sm:col-span-2" : undefined}
+          >
             <SpotlightCard className="h-full p-6 sm:p-7">
               <div className="flex items-baseline justify-between">
                 <h3 className="text-lg font-medium tracking-tight">{g.title}</h3>
