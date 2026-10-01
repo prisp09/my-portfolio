@@ -22,7 +22,7 @@ const PILLARS = [
   {
     Icon: FiUsers,
     title: "Working across teams",
-    body: "I partner with product, design and QA to ship major features faster, and I help train junior developers.",
+    body: "I partner with product, design and QA to ship major features faster, and I mentor interns.",
   },
 ];
 
@@ -30,7 +30,7 @@ export default function About() {
   return (
     <Section id="about">
       <SectionHeading
-        index="01"
+        index="04"
         eyebrow="About"
         title={
           <>
@@ -73,20 +73,11 @@ export default function About() {
         <div className="flex flex-col justify-center">
           <Reveal delay={80}>
             <p className="text-pretty text-xl leading-relaxed text-fg sm:text-2xl sm:leading-relaxed">
-              Full Stack Software Engineer with <YearsOfExperience /> years of experience building
-              scalable, cloud-native systems using{" "}
-              <span className="text-accent-soft">Go, React.js, AWS and Azure</span>.
+              I studied Computer Science at York University&apos;s Lassonde School of Engineering,
+              and I&apos;ve been building Skinopathy OS since February 2023.
             </p>
           </Reveal>
           <Reveal delay={140}>
-            <p className="mt-6 text-pretty text-base leading-relaxed text-fg-muted sm:text-lg">
-              I&apos;m skilled in clean architecture design, CI/CD optimization with
-              Docker, and delivering production-grade software from concept to
-              deployment. I studied Computer Science at York University&apos;s Lassonde
-              School of Engineering.
-            </p>
-          </Reveal>
-          <Reveal delay={200}>
             <p className="mt-6 text-pretty text-base leading-relaxed text-fg-muted sm:text-lg">
               Outside of coding, I enjoy mountain biking, exploring, and the gym.
             </p>

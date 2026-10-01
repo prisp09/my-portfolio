@@ -45,44 +45,32 @@ export const seo = {
   },
 } as const;
 
+/** Technical skills, grouped as on the résumé */
 export const skills = {
-  languages: [
-    "Go",
-    "TypeScript",
-    "JavaScript",
-    "Python",
-    "Java",
-    "SQL (PostgreSQL, MySQL)",
-    "Bash",
-    "HTML",
-    "CSS",
-  ],
-  frameworks: [
-    "Gin Gonic",
-    "React.js",
-    "Next.js",
+  languages: ["Go", "TypeScript", "JavaScript", "Python", "SQL", "Java"],
+  backend: [
+    "Gin",
     "Node.js",
     "Express.js",
     "Spring Boot",
-  ],
-  devOpsTools: [
-    "Docker",
-    "AWS (S3, EC2)",
-    "Microsoft Azure",
     "Azure Functions",
-    "GitHub Actions",
-    "MongoDB Atlas",
+    "REST APIs",
+    "microservices",
+    "OpenAPI/Swagger",
+  ],
+  frontend: ["React", "Next.js", "TanStack Query", "Tailwind CSS", "HTML/CSS"],
+  data: ["PostgreSQL (full-text and trigram search)", "MySQL", "MongoDB"],
+  cloudDevOps: ["Azure", "AWS (S3, EC2)", "Docker", "GitHub Actions", "CI/CD", "feature flags"],
+  practices: [
+    "Vitest",
+    "Playwright",
+    "Go testing",
+    "code review",
+    "release management",
+    "Agile",
+    "mentoring",
   ],
   aiTools: ["Claude", "Cursor", "GitHub Copilot"],
-  concepts: [
-    "REST API Design",
-    "Microservices",
-    "OOP",
-    "Agile",
-    "Unit Testing",
-    "Swagger",
-    "Cloud Architecture",
-  ],
 };
 
 /**
@@ -145,7 +133,7 @@ export const keyProjects = [
     title: "Azure Communication Services",
     org: "Skinopathy",
     description:
-      "Implemented Azure Communication Services in a Go backend (without SDK support), enabling encrypted, government-compliant doctor–patient chat and calls.",
+      "Implemented Azure Communication Services in a Go backend (without SDK support), enabling encrypted doctor–patient chat and video calls.",
     tags: ["Go", "Azure", "Compliance"],
     metric: "No SDK",
     metricLabel: "built directly in Go",
@@ -214,14 +202,16 @@ export const experience = {
   yearStart: 2023,
   yearEnd: null as number | null, // null = present
   highlights: [
-    "Designed and deployed RESTful APIs using Go (Gin Gonic) and PostgreSQL, improving scalability and reducing API response times by 50%.",
-    "Built responsive frontends with React.js, TypeScript, and Tailwind CSS, improving UX and accessibility across doctor and admin portals.",
-    "Integrated Azure Communication Services and AWS S3 for secure, compliant cloud communication and file transfer.",
-    "Containerized backend microservices using Docker, improving deployment consistency and CI/CD reliability.",
-    "Partnered with product, design, and QA to deliver major features 15% faster by optimizing team workflows.",
-    "Trained junior developers and contributed to architecture decisions across backend services.",
-    "Cut Skinopathy OS production releases through 2026 (cycles 16 to 49) across frontend, backend, scheduler, and email, and wrote the clinician-facing release notes.",
-    "Reviewed 184 pull requests, from 11 in 2023 to around 45 a year since 2024.",
+    "Cut API response times 50% by designing and deploying RESTful Go (Gin) services on PostgreSQL behind the EMR's clinical workflows.",
+    "Delivered sub-300 ms prescription search over large datasets with PostgreSQL trigram and full-text indexing, then led Prescriptions 2.0 (~70 PRs) across the EMR and patient portal, including re-prescribing from history and fax-to-pharmacy.",
+    "Cut clinician documentation time from hours to minutes and doubled encounter speed by building the encounter-note editor and Slate.js templating engine, used for 23,000+ encounter notes (~22 a day) at one clinic.",
+    "Reduced admin dashboard load times 80% with an AWS S3 thumbnail-generation pipeline for PDF previews.",
+    "Shipped encrypted doctor-patient chat and video calls by integrating Azure Communication Services into the Go backend without SDK support, for a practice where ~75% of visits are virtual.",
+    "Introduced automated testing across the stack: Vitest and Playwright for the Next.js app (replacing Cypress) and Go unit tests for the backend and scheduling service.",
+    "Built OHIP (Ontario health insurance) claim submission, response handling and fee-schedule parsing in a Python Azure Functions service, and delivered inventory and private-pay invoicing.",
+    "Rebuilt outbound faxing from the patient chart on the SRFax API (multi-document bundles, cover letters, multi-recipient sends) and the react-pdf/pdf-lib pipeline behind printable chart documents (~30 PRs).",
+    "Led 11+ production releases in 2026 across 4 services (frontend, backend, scheduler, email), assembling QA branches and writing clinician-facing release notes.",
+    "Authored 315 PRs across 10 repositories, reviewed 184, completed 197+ tickets and mentored ~5 interns; helped the team ship major features 15% faster.",
   ],
 };
 
@@ -236,16 +226,24 @@ export const education = {
   activities: ["Orientation Leader", "YUHacks Volunteer", "University Tour Guide"],
 };
 
+/** Outcomes from the Skinopathy work, shown first in the hero */
+export const impact = [
+  { value: "50%", label: "faster API response times" },
+  { value: "80%", label: "faster admin dashboard loads" },
+  { value: "<300 ms", label: "prescription search over large datasets" },
+  { value: "2×", label: "encounter speed for clinicians" },
+];
+
 /** Scale of the Skinopathy work, from GitHub and Linear (Feb 2023 – Sep 2026) */
 export const metrics = [
-  { value: "315", label: "pull requests authored on Skinopathy OS" },
-  { value: "184", label: "pull requests reviewed for teammates" },
-  { value: "197+", label: "tickets shipped" },
-  { value: "16–49", label: "production release cycles cut in 2026" },
+  { value: "315", label: "PRs authored across 10 repositories" },
+  { value: "184", label: "PRs reviewed for teammates" },
+  { value: "197+", label: "tickets completed" },
+  { value: "11+", label: "production releases led in 2026" },
 ];
 
 export const platformSummary =
-  "Skinopathy OS is the EMR dermatology clinics use in Canada and Malaysia. I own clinical workflows across a Next.js frontend, Go APIs, PostgreSQL, a Go scheduler, and a Python Azure Function for OHIP claims.";
+  "Healthcare EMR for dermatology clinics in Canada and Malaysia · Next.js, Go, PostgreSQL, Python, Azure";
 
 /**
  * Experience since a date, rounded down to the nearest half year,

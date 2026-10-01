@@ -12,7 +12,7 @@ export default function Work() {
   return (
     <Section id="work">
       <SectionHeading
-        index="03"
+        index="02"
         eyebrow="Selected work"
         title={
           <>

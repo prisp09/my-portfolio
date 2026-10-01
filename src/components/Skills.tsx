@@ -6,19 +6,21 @@ import SpotlightCard from "./ui/SpotlightCard";
 
 const GROUPS = [
   { title: "Languages", items: skills.languages },
-  { title: "Frameworks & libraries", items: skills.frameworks },
-  { title: "Cloud & DevOps", items: skills.devOpsTools },
-  { title: "Concepts", items: skills.concepts },
+  { title: "Backend", items: skills.backend },
+  { title: "Frontend", items: skills.frontend },
+  { title: "Data", items: skills.data },
+  { title: "Cloud & DevOps", items: skills.cloudDevOps },
+  { title: "Testing & Practices", items: skills.practices },
   { title: "AI-Assisted Development", items: skills.aiTools },
 ];
 
-const MARQUEE = [...skills.languages, ...skills.frameworks, ...skills.devOpsTools];
+const MARQUEE = [...skills.languages, ...skills.frontend, ...skills.cloudDevOps.slice(0, 4)];
 
 export default function Skills() {
   return (
     <Section id="skills">
       <SectionHeading
-        index="04"
+        index="03"
         eyebrow="Skills"
         title={
           <>
