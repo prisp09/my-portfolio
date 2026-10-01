@@ -20,7 +20,13 @@ const jsonLd = {
   sameAs: [seo.social.github, seo.social.linkedin, seo.social.instagram],
   worksFor: { "@type": "Organization", name: seo.company },
   alumniOf: { "@type": "Organization", name: seo.school },
-  knowsAbout: [...skills.languages, ...skills.frameworks, ...skills.devOpsTools, ...skills.concepts],
+  knowsAbout: [
+    ...skills.languages,
+    ...skills.backend,
+    ...skills.frontend,
+    ...skills.data,
+    ...skills.cloudDevOps,
+  ],
   address: {
     "@type": "PostalAddress",
     addressLocality: "Toronto",
@@ -37,10 +43,10 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <Hero />
-      <About />
       <Experience />
       <Work />
       <Skills />
+      <About />
       <Education />
       <Contact />
     </>

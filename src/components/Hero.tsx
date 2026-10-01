@@ -2,9 +2,10 @@
 
 import { Fragment, useEffect, useState } from "react";
 import { FiArrowDownRight, FiArrowUpRight, FiGithub, FiLinkedin } from "react-icons/fi";
-import { metrics, seo } from "@/constants/constants";
+import { impact, seo } from "@/constants/constants";
 import Magnetic from "./interactive/Magnetic";
 import Reveal from "./ui/Reveal";
+import YearsOfExperience from "./ui/YearsOfExperience";
 
 function TorontoTime() {
   const [time, setTime] = useState<string | null>(null);
@@ -49,27 +50,40 @@ export default function Hero() {
             className="glass mb-8 inline-flex animate-rise items-center gap-2.5 rounded-full border border-white/[0.08] py-1.5 pl-2 pr-3.5 font-mono text-[0.72rem] text-fg-muted"
             style={delay(0)}
           >
-            <span className="rounded-full bg-accent/15 px-2 py-0.5 text-accent">Full stack</span>
-            Software Engineer · Toronto, ON
+            <span className="rounded-full bg-accent/15 px-2 py-0.5 text-accent">
+              <YearsOfExperience /> yrs
+            </span>
+            Skinopathy Inc. · Toronto, ON
           </p>
 
           <h1 className="text-balance text-[2.7rem] font-medium leading-[1.02] tracking-[-0.045em] sm:text-6xl lg:text-[5rem]">
             <span className="block animate-rise pb-4 text-lg font-normal tracking-normal text-fg-muted sm:text-xl" style={delay(80)}>
               Hi, I&apos;m {seo.person.fullName}.
             </span>
-            <Words text="I build software" start={160} />
-            <span className="inline-block animate-rise" style={delay(370)}>
-              <span className="accent-text">end to end</span>,
-            </span>{" "}
-            <Words text="from the database to the doctor's screen." start={440} />
+            <Words text="Full Stack" start={160} />
+            <span className="inline-block animate-rise" style={delay(300)}>
+              <span className="accent-text">Software Engineer</span>
+            </span>
           </h1>
 
           <p
-            className="mt-8 max-w-xl animate-rise text-pretty text-base leading-relaxed text-fg-muted sm:text-lg"
-            style={delay(900)}
+            className="mt-6 animate-rise font-mono text-xs leading-relaxed text-fg-muted sm:text-sm"
+            style={delay(700)}
           >
-            Full stack engineer on Skinopathy OS, the EMR dermatology clinics use in
-            Canada and Malaysia. Go, Next.js, PostgreSQL, AWS and Azure.
+            Go · TypeScript · React · PostgreSQL · Azure · AWS
+            <span className="sr-only"> | </span>
+            <span className="mt-1 block text-accent-soft">Production software for regulated healthcare</span>
+          </p>
+
+          <p
+            className="mt-6 max-w-2xl animate-rise text-pretty text-base leading-relaxed text-fg-muted sm:text-lg"
+            style={delay(850)}
+          >
+            Full stack engineer with <YearsOfExperience /> years owning production features end to
+            end on Skinopathy OS, a healthcare EMR used in Canada and Malaysia (one Ontario clinic
+            alone: 31,000+ patients, 50,000+ appointments). Delivers measurable results (50% faster
+            APIs, 80% faster dashboards, sub-300 ms search), leads production releases, and raises
+            code quality through review (184 PRs), automated testing and mentoring interns.
           </p>
 
           <div className="mt-10 flex animate-rise flex-wrap items-center gap-3" style={delay(1000)}>
@@ -124,7 +138,7 @@ export default function Hero() {
         </div>
 
         <a
-          href="#about"
+          href="#experience"
           className="absolute bottom-8 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-3 font-mono text-[0.65rem] uppercase tracking-[0.2em] text-fg-dim transition-colors hover:text-fg md:flex"
         >
           Scroll
@@ -134,10 +148,10 @@ export default function Hero() {
         </a>
       </div>
 
-      {/* Impact strip */}
+      {/* Results strip */}
       <div className="glass border-y border-white/[0.06]">
         <dl className="mx-auto grid max-w-shell grid-cols-2 lg:grid-cols-4">
-          {metrics.map((m, i) => (
+          {impact.map((m, i) => (
             <Reveal
               key={m.value}
               delay={i * 90}
@@ -156,7 +170,7 @@ export default function Hero() {
           ))}
         </dl>
         <p className="mx-auto max-w-shell border-t border-white/[0.06] px-5 py-3 font-mono text-[0.68rem] text-fg-dim sm:px-8">
-          Skinopathy OS since Feb 2023 · ticket count covers Linear only, not earlier Jira work
+          Results on Skinopathy OS, Feb 2023 – Present
         </p>
       </div>
     </section>

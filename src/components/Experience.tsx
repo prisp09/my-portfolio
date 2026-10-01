@@ -1,6 +1,6 @@
 import React from "react";
 import { FiArrowUpRight, FiMapPin } from "react-icons/fi";
-import { experience, platformSummary } from "@/constants/constants";
+import { experience, metrics, platformSummary } from "@/constants/constants";
 import SystemDiagram from "./SystemDiagram";
 import { Section, SectionHeading } from "./ui/Section";
 import Reveal from "./ui/Reveal";
@@ -25,7 +25,7 @@ export default function Experience() {
   return (
     <Section id="experience">
       <SectionHeading
-        index="02"
+        index="01"
         eyebrow="Experience"
         title={
           <>
@@ -87,11 +87,7 @@ export default function Experience() {
         </div>
       </Reveal>
 
-      <Reveal delay={120} className="mt-14">
-        <SystemDiagram />
-      </Reveal>
-
-      <ol className="mt-16 grid gap-x-12 md:grid-cols-2">
+      <ol className="mt-14 grid gap-x-12 md:grid-cols-2">
         {experience.highlights.map((h, i) => (
           <Reveal
             as="li"
@@ -108,6 +104,29 @@ export default function Experience() {
           </Reveal>
         ))}
       </ol>
+
+      <Reveal className="mt-14">
+        <dl className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-white/[0.06] bg-white/[0.06] lg:grid-cols-4">
+          {metrics.map((m) => (
+            <div key={m.label} className="bg-ink-950 px-5 py-6">
+              <dt className="sr-only">{m.label}</dt>
+              <dd>
+                <span className="block font-serif text-4xl leading-none tracking-tight text-fg">
+                  {m.value}
+                </span>
+                <span className="mt-2 block text-sm leading-snug text-fg-muted">{m.label}</span>
+              </dd>
+            </div>
+          ))}
+        </dl>
+        <p className="mt-3 font-mono text-[0.68rem] text-fg-dim">
+          From GitHub and Linear, Feb 2023 – Sep 2026 · ticket count covers Linear only, not earlier Jira work
+        </p>
+      </Reveal>
+
+      <Reveal delay={120} className="mt-16">
+        <SystemDiagram />
+      </Reveal>
     </Section>
   );
 }
