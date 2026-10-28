@@ -243,7 +243,7 @@ export const metrics = [
 ];
 
 export const platformSummary =
-  "Healthcare EMR for dermatology clinics in Canada and Malaysia · Next.js, Go, PostgreSQL, Python, Azure";
+  "Healthcare SaaS EMR sold to dermatology clinics in Canada and Malaysia · Next.js, Go, PostgreSQL, Python, Azure";
 
 /**
  * Experience since a date, rounded down to the nearest half year,

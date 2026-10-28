@@ -80,8 +80,8 @@ export default function Hero() {
             style={delay(850)}
           >
             Full stack engineer with <YearsOfExperience /> years owning production features end to
-            end on Skinopathy OS, a healthcare EMR used in Canada and Malaysia (one Ontario clinic
-            alone: 31,000+ patients, 50,000+ appointments). Delivers measurable results (50% faster
+            end on Skinopathy OS, a healthcare SaaS EMR used in Canada and Malaysia (one Ontario
+            clinic alone: 31,000+ patients, 50,000+ appointments). Delivers measurable results (50% faster
             APIs, 80% faster dashboards, sub-300 ms search), leads production releases, and raises
             code quality through review (184 PRs), automated testing and mentoring interns.
           </p>

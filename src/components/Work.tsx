@@ -19,7 +19,7 @@ export default function Work() {
             Features that moved <span className="accent-text">real numbers.</span>
           </>
         }
-        intro="Highlights from Skinopathy OS, the EMR dermatology clinics use in Canada and Malaysia."
+        intro="Highlights from Skinopathy OS, the healthcare SaaS EMR sold to dermatology clinics in Canada and Malaysia."
       />
 
       <div className="grid gap-4 md:grid-cols-6">
